@@ -1,47 +1,64 @@
-# MovenPro V10 corrigido
+# MovenPro+
 
-Versão corrigida mantendo o padrão visual e o Firebase do projeto.
+Sistema ERP e PDV moderno para restaurantes e conveniências.
 
-## Correções desta versão
+---
 
-- Botão **Alterar preço de venda** funcionando no Estoque.
-- Admin altera somente o **Preço de Venda**.
-- **Preço de Entrada** fica automático, vindo do custo cadastrado/última entrada XML.
-- **Margem** recalcula automaticamente pela fórmula: `(venda - entrada) / entrada * 100`.
-- Funcionário/Caixa não vê botão de edição de preço.
-- Removido botão genérico de Alterar Preços da barra do estoque para evitar conflito.
+## 🚀 Tecnologias utilizadas
 
-## Login
+- JavaScript
+- Firebase
+- Firestore
+- Cloud Functions
+- HTML5
+- CSS3
+- PWA
 
-O projeto usa Firebase Authentication e Firestore.
+---
 
-Coleção esperada: `usuarios`
+## 📋 Funcionalidades
 
-Documento recomendado: UID do usuário.
+✅ PDV de vendas  
+✅ Controle de estoque  
+✅ Financeiro  
+✅ Dashboard administrativo  
+✅ Controle de mesas  
+✅ Integração cozinha/bar  
+✅ Multiusuário  
+✅ Sistema responsivo  
+✅ PWA instalável  
 
-Campos:
+---
 
-```json
-{
-  "nome": "Carlos",
-  "perfil": "admin",
-  "empresaId": "moven001",
-  "ativo": true
-}
-```
+## 🔥 Diferenciais
 
-Perfil funcionário/caixa:
+- Sistema em tempo real com Firebase
+- Estrutura moderna e escalável
+- Integração entre setores
+- Interface moderna e intuitiva
+- Arquitetura focada em performance
 
-```json
-{
-  "nome": "Caixa",
-  "perfil": "funcionario",
-  "empresaId": "moven001",
-  "ativo": true
-}
-```
+---
 
-## Atualização V11
+## 🚧 Status do projeto
+
+Em desenvolvimento ativo.
+
+---
+
+## 👨‍💻 Desenvolvedor
+
+Carlos Eduardo Rodrigues Pereira
+
+🔗 LinkedIn:
+https://www.linkedin.com/in/carlosdevjoinville/
+
+---
+
+## 📌 Projeto
+
+MovenPro+ é um sistema desenvolvido para gerenciamento de restaurantes, conveniências e estabelecimentos comerciais.
+
 
 - Estoque agora tem botão **Adicionar produto** para produtos fora do XML.
 - Produto manual permite código interno fácil, código de barras opcional, foto, categoria, custo, venda, quantidade, mínimo e validade.
