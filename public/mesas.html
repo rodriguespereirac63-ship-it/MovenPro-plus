@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovenPro+ | Mesas</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css?v=bar-menu-sutil-20260517-2" />
+</head>
+<body class="app-page">
+  <aside class="sidebar">
+    <div class="brand-logo brand-logo-sidebar">
+      <svg class="brand-symbol" viewBox="0 0 120 120" aria-hidden="true"><path class="m-left" d="M18 96V31c0-8 10-12 16-6l28 29 17-17H63V21h43v43H90V48L62 76 36 49v47H18z"/><path class="m-arrow" d="M40 28l22 22 31-31h-16V5h40v40h-14V30L62 71 30 39z"/></svg>
+      <div class="brand-word"><h1>Moven<span>Pro+</span></h1><p>GESTÃO INTELIGENTE</p></div>
+    </div>
+    <nav>
+      <a class="" href="dashboard.html" data-admin-only>🏠 Dashboard</a>
+      <a class="" href="vendas.html">🛒 PDV / Vendas</a>
+      <a class="active" href="mesas.html">🍽️ Mesas</a>
+      <a class="" href="garcom.html">📱 Garçom Mobile</a>
+      <a class="" href="cozinha.html">👨‍🍳 Cozinha</a>
+      <a class="" href="bar.html" data-page-link="bar">🍹 Bar</a>
+      <a class="" href="alertas.html" data-admin-only>🔔 Alertas</a>
+      <a class="" href="estoque.html">🏷️ Estoque</a>
+      <a class="" href="financeiro.html" data-admin-only>💰 Financeiro</a>
+      <a class="" href="cartoes.html" data-admin-only>💳 Cartões e Conta</a>
+      <a class="" href="monitor-nfe.html" data-admin-only>📥 Monitor NF-e</a>
+      <a class="" href="relatorios.html" data-admin-only>📊 Relatórios</a>
+      <a class="" href="fiscal.html" data-admin-only>🧾 Fiscal</a>
+      <a class="" href="config.html" data-admin-only>⚙️ Configurações</a>
+      <a id="logoutBtn" href="#">🚪 Sair</a>
+    </nav>
+    <div class="sidebar-status">● Sistema online</div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div>
+        <h1>Controle de Mesas 🍽️</h1>
+        <p>Abra mesas, acompanhe pedidos, transfira consumo e envie para o PDV.</p>
+      </div>
+      <div class="top-actions">
+        <button id="btnNovaMesa" class="stock-filter-btn" type="button">+ Adicionar mesa</button>
+        <button id="btnFechamentoCaixaMesas" class="stock-filter-btn" type="button">Fechamento de caixa</button>
+      </div>
+    </header>
+
+    <section class="metric-grid">
+      <article class="metric-card"><span>🟢</span><p>Mesas livres</p><h2 id="mesasLivres">0</h2></article>
+      <article class="metric-card"><span>🟡</span><p>Ocupadas</p><h2 id="mesasOcupadas">0</h2></article>
+      <article class="metric-card"><span>👨‍🍳</span><p>Pedidos em preparo</p><h2 id="pedidosPreparo">0</h2></article>
+      <article class="metric-card"><span>💰</span><p>Consumo aberto</p><h2 id="consumoAberto">R$ 0,00</h2></article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <h3>Mapa de mesas</h3>
+          <p>Selecione uma mesa para lançar pedidos ou fechar a conta.</p>
+        </div>
+        <select id="filtroMesas">
+          <option value="todas">Todas</option>
+          <option value="livre">Livres</option>
+          <option value="ocupada">Ocupadas</option>
+          <option value="fechamento">Aguardando fechamento</option>
+        </select>
+      </div>
+      <div id="gridMesas" class="mesa-grid"></div>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="panel">
+        <h3>Comanda selecionada</h3>
+        <div id="mesaDetalhe" class="mesa-detail">Selecione uma mesa para ver os detalhes.</div>
+      </article>
+      <article class="panel">
+        <h3>Pedidos para cozinha</h3>
+        <div id="filaCozinha" class="finance-list"></div>
+      </article>
+    </section>
+
+
+    <section class="panel mesas-payment-panel">
+      <h3>Pagamento e atalhos da mesa</h3>
+      <p>Selecione uma mesa e finalize o consumo com conferência dos produtos.</p>
+      <div class="shortcuts">
+        <button id="btnConferirPagarMesa" type="button">💳 Conferir / Pagar</button>
+        <button id="btnCaixaMesa" type="button">💰 Fechamento de caixa</button>
+        <button id="btnCancelarMesa" type="button">❌ Cancelar mesa</button>
+        <button id="btnDescontoMesa" type="button">🏷️ Desconto</button>
+        <button id="btnClienteMesa" type="button">👤 Cliente</button>
+        <button id="btnTelaCheiaMesaAtalho" type="button">⛶ Tela cheia</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="js/mesas.js?v=fluxo-mesas-visual-20260517"></script>
+</body>
+</html>
+

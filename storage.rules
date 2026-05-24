@@ -1,0 +1,38 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function usuarioUidExiste() {
+      return signedIn()
+        && firestore.exists(/databases/(default)/documents/usuarios/$(request.auth.uid));
+    }
+
+    function usuarioUid() {
+      return firestore.get(/databases/(default)/documents/usuarios/$(request.auth.uid));
+    }
+
+    function perfilAtivo() {
+      return usuarioUidExiste() && usuarioUid().data.ativo != false;
+    }
+
+    function empresaDoUsuario() {
+      return usuarioUidExiste() ? usuarioUid().data.empresaId : '';
+    }
+
+    function mesmaEmpresa(empresaId) {
+      return perfilAtivo() && empresaDoUsuario() == empresaId;
+    }
+
+    match /backups/{empresaId}/{allPaths=**} {
+      allow read, write: if mesmaEmpresa(empresaId);
+    }
+
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

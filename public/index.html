@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovenPro+ | Login</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css?v=bar-menu-sutil-20260517-2" />
+</head>
+<body class="login-page">
+  <main class="login-shell">
+    <section class="login-card">
+      <div class="brand-logo brand-logo-login" aria-label="MovenPro+">
+        <svg class="brand-symbol" viewBox="0 0 120 120" role="img" aria-label="Símbolo MovenPro+">
+          <path class="m-left" d="M18 96V31c0-8 10-12 16-6l28 29 17-17H63V21h43v43H90V48L62 76 36 49v47H18z"/>
+          <path class="m-arrow" d="M40 28l22 22 31-31h-16V5h40v40h-14V30L62 71 30 39z"/>
+        </svg>
+        <div class="brand-word">
+          <h1>Moven<span>Pro+</span></h1>
+          <p><i></i>GESTÃO INTELIGENTE, RESULTADOS REAIS<i></i></p>
+        </div>
+      </div>
+
+      <h2>Bem-vindo de volta</h2>
+      <p class="login-subtitle">Entre para acessar o painel do seu negócio.</p>
+
+      <form id="loginForm" class="login-form">
+        <label for="email">E-mail</label>
+        <input id="email" type="email" placeholder="admin@movenpro.com" autocomplete="email" required />
+
+        <label for="senha">Senha</label>
+        <input id="senha" type="password" placeholder="Digite sua senha" autocomplete="current-password" required />
+
+        <button type="submit" class="btn-primary">Entrar no sistema</button>
+      </form>
+
+      <div id="loginMsg" class="msg"></div>
+
+      <div class="info-box">
+        <strong>Firebase:</strong> crie o usuário no Authentication e no Firestore use a coleção <b>usuarios</b> com ID igual ao UID.
+      </div>
+    </section>
+
+    <section class="login-hero">
+      <span class="hero-badge">Restaurante + Mesas + Garçom</span>
+      <h2>Sistema simples para atender mesas, lançar pedidos e controlar tudo.</h2>
+      <p>Feito para restaurante, lanchonete, pizzaria, hamburgueria e delivery.</p>
+
+      <div class="feature-grid">
+        <article class="feature-card"><span>🛒</span><strong>PDV rápido</strong><small>Venda e fechamento de conta</small></article>
+        <article class="feature-card"><span>📦</span><strong>Mesas</strong><small>Controle de consumo</small></article>
+        <article class="feature-card"><span>💳</span><strong>Garçom</strong><small>Pedido pelo celular</small></article>
+        <article class="feature-card"><span>📊</span><strong>Cozinha</strong><small>Pedidos organizados</small></article>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>
+

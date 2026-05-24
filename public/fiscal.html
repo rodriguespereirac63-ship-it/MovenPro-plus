@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovenPro+ | Fiscal / SEFAZ</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css?v=bar-menu-sutil-20260517-2" />
+</head>
+<body class="app-page">
+  <aside class="sidebar">
+    <div class="brand-logo brand-logo-sidebar">
+      <svg class="brand-symbol" viewBox="0 0 120 120" aria-hidden="true"><path class="m-left" d="M18 96V31c0-8 10-12 16-6l28 29 17-17H63V21h43v43H90V48L62 76 36 49v47H18z"/><path class="m-arrow" d="M40 28l22 22 31-31h-16V5h40v40h-14V30L62 71 30 39z"/></svg>
+      <div class="brand-word"><h1>Moven<span>Pro+</span></h1><p>GESTÃO INTELIGENTE</p></div>
+    </div>
+    <nav>
+      <a class="" href="dashboard.html" data-admin-only>🏠 Dashboard</a>
+      <a class="" href="vendas.html">🛒 PDV / Vendas</a>
+      <a class="" href="mesas.html">🍽️ Mesas</a>
+      <a class="" href="garcom.html">📱 Garçom Mobile</a>
+      <a class="" href="cozinha.html">👨‍🍳 Cozinha</a>
+      <a class="" href="bar.html" data-page-link="bar">🍹 Bar</a>
+      <a class="" href="alertas.html" data-admin-only>🔔 Alertas</a>
+      <a class="" href="estoque.html">🏷️ Estoque</a>
+      <a class="" href="financeiro.html" data-admin-only>💰 Financeiro</a>
+      <a class="" href="cartoes.html" data-admin-only>💳 Cartões e Conta</a>
+      <a class="" href="monitor-nfe.html" data-admin-only>📥 Monitor NF-e</a>
+      <a class="" href="relatorios.html" data-admin-only>📊 Relatórios</a>
+      <a class="active" href="fiscal.html" data-admin-only>🧾 Fiscal</a>
+      <a class="" href="config.html" data-admin-only>⚙️ Configurações</a>
+      <a id="logoutBtn" href="#">🚪 Sair</a>
+    </nav>
+    <div class="sidebar-status">● Sistema online</div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div>
+        <h1>Fiscal / SEFAZ</h1>
+        <p>Estrutura própria para NFC-e, certificado, CSC, XML, contingência e relatórios fiscais.</p>
+      </div>
+      <div class="top-actions"><span id="fiscalStatus">Fiscal: Rascunho</span><span>Loja Matriz</span></div>
+    </header>
+
+    <section class="metric-grid">
+      <article class="metric-card"><span>🧾</span><p>NFC-e</p><h2 id="cardModeloFiscal">Modelo 65</h2><small>venda consumidor</small></article>
+      <article class="metric-card"><span>🔐</span><p>Certificado</p><h2 id="cardCertificado">Não enviado</h2><small>A1 recomendado</small></article>
+      <article class="metric-card"><span>🏛️</span><p>Ambiente</p><h2 id="cardAmbiente">Homologação</h2><small>teste antes da produção</small></article>
+      <article class="metric-card"><span>📁</span><p>XML</p><h2 id="cardXml">Preparado</h2><small>histórico fiscal</small></article>
+    </section>
+
+    <section class="fiscal-tabs">
+      <button class="active" data-fiscal-tab="empresa">Empresa</button>
+      <button data-fiscal-tab="nfce">NFC-e / SEFAZ</button>
+      <button data-fiscal-tab="produtos">Produtos fiscais</button>
+      <button data-fiscal-tab="xml">XML / DANFE</button>
+      <button data-fiscal-tab="backend">Backend próprio</button>
+    </section>
+
+    <section class="dashboard-grid fiscal-grid" data-tab-panel="empresa">
+      <article class="panel panel-wide">
+        <h2>Cadastro fiscal da empresa</h2>
+        <p>Esses dados serão usados para gerar XML, DANFE e comunicação futura com a SEFAZ.</p>
+        <form id="formFiscalEmpresa" class="config-form">
+          <div class="form-grid">
+            <label>Razão Social<input id="razaoSocial" placeholder="Nome legal da empresa"></label>
+            <label>Nome Fantasia<input id="nomeFantasia" placeholder="Nome comercial"></label>
+            <label>CNPJ<input id="cnpj" placeholder="00.000.000/0000-00"></label>
+            <label>Inscrição Estadual<input id="ie" placeholder="IE da empresa"></label>
+            <label>Regime tributário
+              <select id="regimeTributario">
+                <option value="simples">Simples Nacional</option>
+                <option value="normal">Regime Normal</option>
+                <option value="mei">MEI</option>
+              </select>
+            </label>
+            <label>CRT
+              <select id="crt">
+                <option value="1">1 - Simples Nacional</option>
+                <option value="2">2 - Simples com excesso sublimite</option>
+                <option value="3">3 - Regime Normal</option>
+              </select>
+            </label>
+            <label>CEP<input id="cep" placeholder="00000-000"></label>
+            <label>Endereço<input id="endereco" placeholder="Rua, número, bairro"></label>
+            <label>Cidade<input id="cidade" placeholder="Cidade"></label>
+            <label>UF<input id="uf" maxlength="2" placeholder="SC"></label>
+          </div>
+          <div class="modal-actions payment-actions"><button class="btn-primary" type="submit">Salvar empresa fiscal</button></div>
+        </form>
+      </article>
+      <article class="panel"><h3>Checklist empresa</h3><div id="checkEmpresa" class="gateway-checklist"></div></article>
+    </section>
+
+    <section class="dashboard-grid fiscal-grid hidden" data-tab-panel="nfce">
+      <article class="panel panel-wide">
+        <h2>Configuração NFC-e / SEFAZ</h2>
+        <p>Configuração base para um backend fiscal próprio. O token real e certificado devem ficar no backend, não no frontend público.</p>
+        <form id="formFiscalNfce" class="config-form">
+          <div class="form-grid">
+            <label>Modelo fiscal
+              <select id="modeloFiscal"><option value="65">NFC-e - Modelo 65</option><option value="55">NF-e - Modelo 55</option></select>
+            </label>
+            <label>Ambiente SEFAZ
+              <select id="ambienteSefaz"><option value="homologacao">Homologação</option><option value="producao">Produção</option></select>
+            </label>
+            <label>Série NFC-e<input id="serieNfce" type="number" placeholder="1"></label>
+            <label>Próximo número<input id="proximoNumero" type="number" placeholder="1"></label>
+            <label>ID CSC<input id="idCsc" placeholder="Ex: 000001"></label>
+            <label>CSC / Token<input id="csc" type="password" placeholder="Código de Segurança do Contribuinte"></label>
+            <label>Tipo de emissão
+              <select id="tipoEmissao"><option value="normal">Normal</option><option value="contingencia">Contingência offline</option></select>
+            </label>
+            <label>Status da integração
+              <select id="statusFiscal"><option value="rascunho">Rascunho</option><option value="teste">Em homologação</option><option value="ativo">Ativo</option></select>
+            </label>
+          </div>
+          <div class="gateway-box">
+            <h3>Certificado digital A1</h3>
+            <p>Certificado A1 protegido para emissão fiscal via backend seguro.</p>
+            <div class="form-grid">
+              <label>Nome do certificado<input id="certificadoNome" placeholder="certificado-loja-matriz.pfx"></label>
+              <label>Validade<input id="certificadoValidade" type="date"></label>
+              <label>Senha do certificado<input id="certificadoSenha" type="password" placeholder="Guardar somente no backend"></label>
+              <label>URL backend fiscal<input id="backendFiscalUrl" placeholder="https://.../api/fiscal"></label>
+            </div>
+          </div>
+          <div class="modal-actions payment-actions"><button class="btn-primary" type="submit">Salvar NFC-e / SEFAZ</button></div>
+        </form>
+      </article>
+      <article class="panel"><h3>Checklist NFC-e</h3><div id="checkNfce" class="gateway-checklist"></div></article>
+    </section>
+
+    <section class="dashboard-grid fiscal-grid hidden" data-tab-panel="produtos">
+      <article class="panel panel-wide">
+        <h2>Produtos fiscais</h2>
+        <p>Base para cada produto ter NCM, CFOP, CST/CSOSN, unidade e tributação. Isso evita rejeição futura na SEFAZ.</p>
+        <form id="formProdutoFiscal" class="config-form">
+          <div class="form-grid">
+            <label>Produto<input id="produtoFiscalNome" placeholder="Ex: Coca-Cola 2L"></label>
+            <label>NCM<input id="produtoNcm" placeholder="Ex: 22021000"></label>
+            <label>CFOP<input id="produtoCfop" placeholder="Ex: 5102"></label>
+            <label>CST / CSOSN<input id="produtoCst" placeholder="Ex: 102 / 060"></label>
+            <label>CEST<input id="produtoCest" placeholder="quando tiver ST"></label>
+            <label>Unidade<input id="produtoUnidade" placeholder="UN, KG, CX"></label>
+          </div>
+          <div class="modal-actions payment-actions"><button class="btn-primary" type="submit">Adicionar produto fiscal</button></div>
+        </form>
+      </article>
+      <article class="panel panel-wide">
+        <h3>Lista fiscal</h3>
+        <div class="table-wrap"><table><thead><tr><th>Produto</th><th>NCM</th><th>CFOP</th><th>CST/CSOSN</th><th>Unidade</th></tr></thead><tbody id="listaProdutosFiscais"></tbody></table></div>
+      </article>
+    </section>
+
+    <section class="dashboard-grid fiscal-grid hidden" data-tab-panel="xml">
+      <article class="panel">
+        <h3>Histórico NFC-e</h3>
+        <p>Notas autorizadas, canceladas, rejeitadas e em contingência.</p>
+        <div class="fiscal-status-list"><span>✅ Autorizadas</span><span>⏳ Pendentes</span><span>⚠️ Rejeitadas</span><span>📴 Contingência</span></div>
+      </article>
+      <article class="panel">
+        <h3>XML mensal</h3>
+        <p>Exportação para contador por mês, com XML, DANFE e resumo de vendas.</p>
+        <button class="small-action" type="button" id="btnSimularXml">Simular pacote XML</button>
+      </article>
+      <article class="panel">
+        <h3>Cancelamentos</h3>
+        <p>Preparado para cancelar NFC-e autorizada dentro do prazo e armazenar justificativa.</p>
+      </article>
+      <article class="panel">
+        <h3>Inutilização</h3>
+        <p>Preparado para inutilizar numeração quando houver salto na sequência fiscal.</p>
+      </article>
+    </section>
+
+    <section class="dashboard-grid fiscal-grid hidden" data-tab-panel="backend">
+      <article class="panel panel-wide">
+        <h2>Backend fiscal próprio</h2>
+        <p>Arquitetura recomendada para o MovenPro não depender do frontend para assinar XML ou guardar certificado.</p>
+        <div class="fiscal-flow">
+          <div>PDV</div><span>→</span><div>Firebase Functions</div><span>→</span><div>XML + Assinatura</div><span>→</span><div>SEFAZ</div><span>→</span><div>NFC-e autorizada</div>
+        </div>
+      </article>
+      <article class="panel">
+        <h3>Funções futuras</h3>
+        <div class="gateway-checklist">
+          <div class="check-item wait"><span>⏳</span><b>gerarXmlNfce</b></div>
+          <div class="check-item wait"><span>⏳</span><b>assinarXmlA1</b></div>
+          <div class="check-item wait"><span>⏳</span><b>enviarLoteSefaz</b></div>
+          <div class="check-item wait"><span>⏳</span><b>consultarAutorizacao</b></div>
+          <div class="check-item wait"><span>⏳</span><b>cancelarNfce</b></div>
+        </div>
+      </article>
+      <article class="panel">
+        <h3>Aviso importante</h3>
+        <p>Módulo fiscal incluído. A emissão em produção é ativada com certificado A1, CSC, homologação SEFAZ e backend seguro.</p>
+      </article>
+    </section>
+  </main>
+  <script type="module" src="js/dashboard.js"></script>
+  <script type="module" src="js/fiscal.js"></script>
+</body>
+</html>
+

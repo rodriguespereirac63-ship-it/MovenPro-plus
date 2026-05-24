@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovenPro+ | Estoque</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css?v=bar-menu-sutil-20260517-2" />
+</head>
+<body class="app-page estoque-page">
+  <aside class="sidebar">
+    <div class="brand-logo brand-logo-sidebar">
+      <svg class="brand-symbol" viewBox="0 0 120 120" aria-hidden="true"><path class="m-left" d="M18 96V31c0-8 10-12 16-6l28 29 17-17H63V21h43v43H90V48L62 76 36 49v47H18z"/><path class="m-arrow" d="M40 28l22 22 31-31h-16V5h40v40h-14V30L62 71 30 39z"/></svg>
+      <div class="brand-word"><h1>Moven<span>Pro+</span></h1><p>GESTÃO INTELIGENTE</p></div>
+    </div>
+    <nav>
+      <a class="" href="dashboard.html" data-admin-only>🏠 Dashboard</a>
+      <a class="" href="vendas.html">🛒 PDV / Vendas</a>
+      <a class="" href="mesas.html">🍽️ Mesas</a>
+      <a class="" href="garcom.html">📱 Garçom Mobile</a>
+      <a class="" href="cozinha.html">👨‍🍳 Cozinha</a>
+      <a class="" href="bar.html" data-page-link="bar">🍹 Bar</a>
+      <a class="" href="alertas.html" data-admin-only>🔔 Alertas</a>
+      <a class="active" href="estoque.html">🏷️ Estoque</a>
+      <a class="" href="financeiro.html" data-admin-only>💰 Financeiro</a>
+      <a class="" href="cartoes.html" data-admin-only>💳 Cartões e Conta</a>
+      <a class="" href="monitor-nfe.html" data-admin-only>📥 Monitor NF-e</a>
+      <a class="" href="relatorios.html" data-admin-only>📊 Relatórios</a>
+      <a class="" href="fiscal.html" data-admin-only>🧾 Fiscal</a>
+      <a class="" href="config.html" data-admin-only>⚙️ Configurações</a>
+      <a id="logoutBtn" href="#">🚪 Sair</a>
+    </nav>
+    <div class="sidebar-status">● Sistema online</div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div>
+        <h1>Estoque</h1>
+        <p>Produtos, quantidade, validade, custo, venda e margem em uma tela só.</p>
+      </div>
+      <div class="top-actions">
+        <button id="btnAddProduct" class="stock-filter-btn" data-admin-only>+ Adicionar produto</button>
+        <button class="stock-filter-btn active" data-filter="todos">Todos</button>
+        <button class="stock-filter-btn" data-filter="baixo">Estoque baixo</button>
+        <button class="stock-filter-btn" data-filter="validade">Validade</button>
+        <button class="stock-filter-btn" data-filter="parados">Produtos parados</button>
+        <button class="stock-filter-btn" data-filter="sugestao">Sugestão de compra</button>
+      </div>
+    </header>
+
+    <section class="metric-grid stock-summary">
+      <article class="metric-card"><span>📦</span><p>Total de produtos</p><h2 id="totalProdutos">0</h2><small>cadastrados</small></article>
+      <article class="metric-card"><span>⚠️</span><p>Estoque baixo</p><h2 id="totalBaixo">0</h2><small>clique no botão acima</small></article>
+      <article class="metric-card"><span>⏳</span><p>Validade próxima</p><h2 id="totalValidade">0</h2><small>até 30 dias</small></article>
+      <article class="metric-card"><span>💰</span><p>Valor em estoque</p><h2 id="valorEstoque">R$ 0,00</h2><small>base custo</small></article>
+      <article class="metric-card"><span>📉</span><p>Produtos parados</p><h2 id="totalParados">0</h2><small>sem venda recente</small></article>
+    </section>
+
+    <section class="panel stock-alert-panel" id="alertPanel" hidden>
+      <h3 id="alertTitle">Produtos</h3>
+      <div id="alertList" class="alert-list"></div>
+    </section>
+
+    <section class="stock-toolbar">
+      <input id="stockSearch" class="search" placeholder="Buscar por nome, código interno ou código de barras..." />
+    </section>
+
+    <section id="stockGrid" class="stock-grid"></section>
+  </main>
+
+  <script type="module" src="js/estoque.js"></script>
+</body>
+</html>
+

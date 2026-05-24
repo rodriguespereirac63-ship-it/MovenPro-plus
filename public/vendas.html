@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovenPro+ | PDV</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css?v=bar-menu-sutil-20260517-2" />
+</head>
+<body class="pdv-page">
+  <aside id="drawer" class="drawer">
+    <div class="brand-logo brand-logo-sidebar">
+      <svg class="brand-symbol" viewBox="0 0 120 120" aria-hidden="true">
+        <path class="m-left" d="M18 96V31c0-8 10-12 16-6l28 29 17-17H63V21h43v43H90V48L62 76 36 49v47H18z"/>
+        <path class="m-arrow" d="M40 28l22 22 31-31h-16V5h40v40h-14V30L62 71 30 39z"/>
+      </svg>
+      <div class="brand-word"><h1>Moven<span>Pro+</span></h1><p>GESTÃO INTELIGENTE</p></div>
+    </div>
+    
+    <a href="dashboard.html" data-admin-only>🏠 Dashboard</a>
+    <a class="active" href="vendas.html">🛒 PDV / Vendas</a>
+    <a href="mesas.html">🍽️ Mesas</a>
+    <a href="garcom.html">📱 Garçom Mobile</a>
+    <a href="cozinha.html">👨‍🍳 Cozinha</a>
+    <a href="bar.html" data-page-link="bar">🍹 Bar</a>
+    <a href="alertas.html" data-admin-only>🔔 Alertas</a>
+    <a href="estoque.html">🏷️ Estoque</a>
+    <a href="financeiro.html" data-admin-only>💰 Financeiro</a>
+    <a href="cartoes.html" data-admin-only>💳 Cartões e Conta</a>
+    <a href="monitor-nfe.html" data-admin-only>📥 Monitor NF-e</a>
+    <a href="relatorios.html" data-admin-only>📊 Relatórios</a>
+    <a href="fiscal.html" data-admin-only>🧾 Fiscal</a>
+    <a href="config.html" data-admin-only>⚙️ Configurações</a>
+    <a id="logoutBtn" href="#">🚪 Sair</a>
+  </aside>
+
+  <header class="pdv-topbar">
+    <button id="menuBtn" class="menu-btn">☰</button>
+    <div><h1>PDV / Vendas 🛒</h1><p>Faça a venda, adicione os produtos e finalize o pedido.</p></div>
+    <div class="pdv-info"><span>Loja Matriz</span><span>Caixa: 001</span><span class="open-status">● Aberto</span></div>
+  </header>
+
+  <main class="pdv-main">
+    <section class="products-area">
+      <input class="search" placeholder="Escaneie o código de barras ou digite o produto..." />
+      <div class="chips"><button class="active">Todos</button><button>Bebidas</button><button>Alimentos</button><button>Higiene</button><button>Limpeza</button><button>Outros</button></div>
+      <h3>Produtos populares</h3>
+      <div class="product-grid" id="productGrid"></div>
+      <div class="shortcuts"><button id="btnNovaVenda">Nova Venda</button><button id="btnCaixa">💰 Caixa</button><button id="btnCancelarVenda">Cancelar Venda</button><button id="btnDesconto">Desconto</button><button>Cliente</button><button id="btnTelaCheia">Tela cheia</button></div>
+    </section>
+
+    <aside class="cart-panel">
+      <h2>Venda Atual</h2>
+      <div id="cartItems"></div>
+      <textarea placeholder="Observação da venda"></textarea>
+      <div class="totals"><p>Subtotal <b id="subtotal">R$ 0,00</b></p><p>Desconto <b>R$ 0,00</b></p><h1 id="total">R$ 0,00</h1></div>
+      <button id="btnFinalizarPagamento" class="btn-finish" type="button">F10 - Finalizar Pagamento</button>
+      <div class="pay-grid"><button data-pay="Dinheiro">Dinheiro</button><button data-pay="PIX">PIX</button><button data-pay="Cartão">Cartão</button><button data-pay="Manual">Manual</button></div>
+    </aside>
+  </main>
+  <script type="module" src="js/vendas.js"></script>
+</body>
+</html>
+

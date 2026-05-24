@@ -1,0 +1,14 @@
+{
+  "name": "movenpro",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "firebase deploy",
+    "serve": "firebase emulators:start",
+    "hosting": "firebase emulators:start --only hosting"
+  },
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^4.9.0"
+  }
+}

@@ -1,0 +1,569 @@
+:root{
+  --navy:#07172c;
+  --navy-2:#0d2442;
+  --blue:#0968e8;
+  --gold:#d89b13;
+  --gold-2:#f6c945;
+  --bg:#f4f6fa;
+  --card:#ffffff;
+  --text:#101827;
+  --muted:#667085;
+  --line:#e6e9ef;
+  --green:#17a75b;
+  --red:#ef4444;
+  --shadow:0 18px 45px rgba(15,23,42,.08);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Inter,Arial,Helvetica,sans-serif;color:var(--text);background:var(--bg)}
+a{text-decoration:none;color:inherit}button,input,textarea{font-family:inherit}
+
+/* LOGO ÚNICO DO SISTEMA */
+.brand-logo{display:flex;align-items:center;gap:14px;min-width:0}.brand-symbol{width:86px;height:86px;flex:0 0 auto}.brand-symbol .m-left{fill:var(--navy)}.brand-symbol .m-arrow{fill:var(--gold)}.brand-word h1{margin:0;font-size:46px;line-height:.95;font-weight:900;letter-spacing:-1.6px;color:var(--navy)}.brand-word h1 span{color:var(--gold)}.brand-word p{display:flex;align-items:center;gap:10px;margin:8px 0 0;color:#344054;font-size:11px;line-height:1.15;font-weight:900;letter-spacing:2px;text-transform:uppercase;white-space:nowrap}.brand-word p i{display:inline-block;width:24px;height:1px;background:var(--gold)}.brand-logo-sidebar .brand-symbol{width:54px;height:54px}.brand-logo-sidebar .brand-symbol .m-left{fill:#fff}.brand-logo-sidebar .brand-word h1{font-size:27px;color:#fff;letter-spacing:-.8px}.brand-logo-sidebar .brand-word p{font-size:8px;color:#d8e2f2;letter-spacing:1.2px}.brand-logo-sidebar .brand-word p i{display:none}
+
+/* LOGIN */
+.login-page{min-height:100vh;background:linear-gradient(135deg,#eef2f7,#f8fafc);display:flex;align-items:center;justify-content:center;padding:32px;overflow:auto}.login-shell{width:min(1420px,100%);display:grid;grid-template-columns:minmax(430px,570px) 1fr;gap:40px;align-items:stretch}.login-card,.login-hero{background:#fff;border:1px solid rgba(230,233,239,.8);border-radius:30px;box-shadow:var(--shadow);padding:42px;position:relative;overflow:hidden}.brand-logo-login{margin-bottom:34px}.login-card h2{font-size:38px;line-height:1.05;margin:0 0 10px;font-weight:900;letter-spacing:-1px}.login-subtitle{font-size:18px;color:var(--muted);margin:0 0 28px}.login-form label{display:block;font-weight:900;margin:18px 0 8px}.login-form input,.search,.config-form input,.cart-panel textarea{width:100%;border:1px solid #d8dee9;border-radius:18px;background:#f8fafc;padding:17px 18px;font-size:16px;outline:none}.login-form input:focus,.search:focus,.config-form input:focus{border-color:#94bdf8;box-shadow:0 0 0 4px rgba(9,104,232,.08)}.btn-primary,.btn-finish{width:100%;border:0;border-radius:18px;background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#161616;padding:17px 20px;font-size:17px;font-weight:900;cursor:pointer;box-shadow:0 10px 22px rgba(216,155,19,.24)}.msg{min-height:20px;margin-top:16px;color:var(--red);font-weight:800}.info-box{margin-top:18px;border:1px solid #f2d58a;background:#fff7df;color:#664b00;padding:16px;border-radius:16px;font-size:14px;line-height:1.35}.login-hero{padding:52px;display:flex;flex-direction:column;justify-content:center}.login-hero:after{content:"";position:absolute;right:-150px;bottom:-150px;width:420px;height:420px;background:radial-gradient(circle,rgba(216,155,19,.16),transparent 65%);border-radius:50%;pointer-events:none}.hero-badge{display:inline-flex;align-self:flex-start;background:var(--navy);color:#fff;border-radius:999px;padding:10px 18px;font-weight:900;font-size:14px;margin-bottom:26px}.login-hero h2{font-size:48px;max-width:720px;line-height:1.08;margin:0 0 18px;letter-spacing:-1.4px;position:relative;z-index:2}.login-hero>p{font-size:19px;color:#475467;max-width:760px;margin:0 0 34px;position:relative;z-index:2}.feature-grid{display:grid;grid-template-columns:repeat(2,minmax(190px,1fr));gap:18px;position:relative;z-index:2}.feature-card{min-height:134px;background:#f8fafc;border:1px solid var(--line);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:8px}.feature-card span{font-size:28px;color:#111}.feature-card strong{font-size:20px}.feature-card small{font-size:14px;color:var(--muted)}
+
+/* APP COM SIDEBAR */
+.app-page{min-height:100vh;display:grid;grid-template-columns:272px 1fr}.sidebar{background:linear-gradient(180deg,var(--navy),#03101f);color:#fff;padding:24px 20px;display:flex;flex-direction:column;gap:24px;position:sticky;top:0;height:100vh}.sidebar nav{display:grid;gap:7px}.sidebar nav a,.drawer a{color:#e8f0ff;padding:14px 15px;border-radius:14px;font-weight:800}.sidebar nav a:hover,.sidebar nav a.active,.drawer a:hover,.drawer a.active{background:var(--blue);color:#fff}.sidebar-status{margin-top:auto;background:#0d2d55;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:16px;color:#8df0ad;font-weight:800}.main-content{padding:26px;min-width:0}.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;gap:18px}.topbar h1{margin:0;font-size:30px;letter-spacing:-.7px}.topbar p{margin:4px 0 0;color:var(--muted)}.top-actions{display:flex;gap:12px;flex-wrap:wrap}.top-actions span,.pdv-info span{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 16px;box-shadow:0 4px 12px rgba(15,23,42,.04);font-weight:700}.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.metric-card,.panel,.quick-actions a{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)}.metric-card{padding:23px}.metric-card span{font-size:34px}.metric-card p{margin:14px 0 5px;color:var(--muted);font-size:12px;text-transform:uppercase;font-weight:900}.metric-card h2{margin:0;font-size:28px}.metric-card small,.green{color:var(--green)}.red{color:var(--red)}.dashboard-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;margin-top:18px}.panel{padding:22px}.panel h3{margin:0 0 16px}.panel p{display:flex;justify-content:space-between;gap:12px}.panel-wide{grid-column:span 2}.bars{height:250px;display:flex;align-items:end;gap:22px;border-bottom:1px solid var(--line);padding:20px 10px}.bars i{display:block;flex:1;background:linear-gradient(180deg,#22c55e,#86efac);border-radius:10px 10px 0 0}.quick-actions{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:18px}.quick-actions a{padding:18px;text-align:center;font-weight:900}
+
+/* PDV */
+.pdv-page{min-height:100vh;background:#fff}.drawer{position:fixed;left:-300px;top:0;bottom:0;width:300px;background:linear-gradient(180deg,var(--navy),#03101f);color:#fff;padding:24px 20px;z-index:30;transition:.25s;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px}.drawer.open{left:0}.pdv-topbar{height:88px;padding:14px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:18px;background:#fff;position:sticky;top:0;z-index:10}.menu-btn{border:0;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 16px;font-size:22px;box-shadow:0 8px 20px rgba(15,23,42,.06);cursor:pointer}.pdv-topbar h1{margin:0;font-size:24px}.pdv-topbar p{margin:4px 0;color:var(--muted)}.pdv-info{display:flex;gap:10px;margin-left:auto}.open-status{color:var(--green)}.pdv-main{display:grid;grid-template-columns:1fr 440px;gap:22px;padding:24px}.chips{display:flex;gap:10px;margin:18px 0;overflow:auto;padding-bottom:4px}.chips button{border:1px solid var(--line);background:#fff;border-radius:14px;padding:13px 18px;font-weight:900;white-space:nowrap}.chips .active{background:var(--blue);color:#fff}.product-grid{display:grid;grid-template-columns:repeat(5,minmax(130px,1fr));gap:14px}.product{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 9px 22px rgba(15,23,42,.06);padding:16px;text-align:center;cursor:pointer}.product .pic{font-size:46px;height:62px}.product h4{font-size:14px;min-height:38px;margin:10px 0}.product b{color:#075cc7;font-size:20px}.product small{display:block;color:var(--green);margin-top:8px}.shortcuts,.pay-grid{display:grid;gap:12px}.shortcuts{grid-template-columns:repeat(6,1fr);margin-top:24px}.shortcuts button,.pay-grid button{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;font-weight:900;box-shadow:0 8px 18px rgba(15,23,42,.05)}.cart-panel{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px;align-self:start;position:sticky;top:112px}.cart-panel h2{margin-top:0}.cart-row{display:grid;grid-template-columns:1fr 38px 78px 32px;gap:8px;align-items:center;border-bottom:1px solid var(--line);padding:12px 0}.cart-row button{border:0;background:#fee2e2;color:#b91c1c;border-radius:8px;padding:8px}.cart-panel textarea{min-height:82px;margin:16px 0;resize:none}.totals p{display:flex;justify-content:space-between}.totals h1{text-align:right;color:#075cc7;font-size:42px;margin:12px 0}.btn-finish{background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff}.pay-grid{grid-template-columns:repeat(2,1fr);margin-top:12px}
+
+/* CONFIG */
+.config-panel{max-width:980px}.config-form{display:grid;gap:20px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.config-form label{font-weight:900;color:#253044}.config-form input{margin-top:8px}
+
+@media(max-width:1180px){.login-shell{grid-template-columns:1fr;max-width:760px}.login-hero{display:none}.app-page{grid-template-columns:1fr}.sidebar{display:none}.metric-grid,.dashboard-grid,.quick-actions{grid-template-columns:1fr 1fr}.panel-wide{grid-column:span 2}.pdv-main{grid-template-columns:1fr}.cart-panel{position:static}.product-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.login-page{padding:16px}.login-card{padding:26px}.brand-logo-login{align-items:flex-start}.brand-symbol{width:64px;height:64px}.brand-word h1{font-size:34px}.brand-word p{font-size:8px;white-space:normal}.login-card h2{font-size:30px}.metric-grid,.dashboard-grid,.quick-actions,.product-grid,.shortcuts,.form-grid{grid-template-columns:1fr}.pdv-info{display:none}.pdv-main{padding:14px}.cart-row{grid-template-columns:1fr 35px 72px 30px}}
+
+/* ===== AJUSTES V4 - PDV / LOGO / PRODUTOS ===== */
+.product .pic{height:82px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;font-size:0}
+.product .pic img{width:78px;height:78px;object-fit:contain;display:block}
+.pay-grid{grid-template-columns:repeat(2,1fr)}
+.drawer a{display:block}
+.sidebar nav a{display:block}
+
+
+/* ===== PRODUTOS COM FOTOS REAIS - PDV V5 ===== */
+.product-grid{grid-template-columns:repeat(5,minmax(150px,1fr));gap:16px}
+.product{min-height:205px;display:flex;flex-direction:column;justify-content:space-between}
+.product .pic{height:98px!important;display:flex!important;align-items:center!important;justify-content:center!important;margin-bottom:8px!important;background:#fff!important;border-radius:16px!important;overflow:hidden!important}
+.product .pic img{width:112px!important;height:96px!important;object-fit:contain!important;display:block!important;filter:drop-shadow(0 7px 8px rgba(15,23,42,.12))}
+.product h4{font-size:13px!important;line-height:1.25!important;min-height:36px!important;margin:6px 0!important;color:#0f172a!important}
+.product b{font-size:22px!important;color:#075cc7!important}
+.product small{font-size:12px!important;color:#16a34a!important}
+@media(max-width:1180px){.product-grid{grid-template-columns:repeat(3,1fr)!important}}
+@media(max-width:700px){.product-grid{grid-template-columns:repeat(2,1fr)!important}.product .pic img{width:96px!important;height:86px!important}}
+
+/* ===== AJUSTES V9 - PERMISSÕES + ESTOQUE UNIFICADO ===== */
+.stock-filter-btn,.small-action{border:1px solid var(--line);background:#fff;border-radius:14px;padding:12px 16px;font-weight:900;cursor:pointer;box-shadow:0 4px 12px rgba(15,23,42,.04)}
+.stock-filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.stock-toolbar{display:flex;gap:12px;margin:18px 0;align-items:center}.stock-toolbar .search{flex:1;margin:0}.small-action{height:48px}.muted-action{background:#f8fafc;color:#0f172a}.stock-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.stock-card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:18px;display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:center}.stock-img{height:140px;background:#f8fafc;border-radius:20px;display:flex;align-items:center;justify-content:center;overflow:hidden}.stock-img img{max-width:96%;max-height:96%;object-fit:contain}.stock-info h3{margin:8px 0 4px;font-size:20px}.stock-info p{margin:0 0 12px;color:var(--muted);font-weight:700}.stock-status{display:inline-flex;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:900}.stock-status.ok{background:#dcfce7;color:#166534}.stock-status.warning{background:#fef3c7;color:#92400e}.stock-status.danger{background:#fee2e2;color:#991b1b}.stock-numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}.stock-numbers span,.price-row span{background:#f8fafc;border:1px solid var(--line);border-radius:14px;padding:10px;display:flex;flex-direction:column;gap:2px}.stock-numbers b{font-size:18px}.stock-numbers small,.price-row{color:var(--muted);font-size:12px;font-weight:800}.price-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.price-row b{color:#0f172a;font-size:15px}.admin-actions{display:flex;gap:8px;margin-top:12px}.admin-actions button{border:0;background:#eaf2ff;color:var(--navy);border-radius:12px;padding:10px 12px;font-weight:900;cursor:pointer}.stock-alert-panel{margin-top:18px}.alert-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.alert-list div{background:#f8fafc;border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;justify-content:space-between;gap:14px}.alert-list strong{font-weight:900}.alert-list span{color:var(--muted);font-weight:800}.modo-funcionario .sidebar nav a:not([href="vendas.html"]):not([href="estoque.html"]):not(#logoutBtn),.modo-funcionario .drawer a:not([href="vendas.html"]):not([href="estoque.html"]):not(#logoutBtn){display:none!important}.modo-funcionario .admin-actions,.modo-funcionario [data-admin-only]{display:none!important}@media(max-width:1180px){.stock-grid{grid-template-columns:1fr}.stock-card{grid-template-columns:110px 1fr}.stock-img{height:110px}.stock-toolbar{flex-wrap:wrap}.stock-toolbar .search{min-width:100%}.alert-list{grid-template-columns:1fr}}@media(max-width:720px){.stock-card{grid-template-columns:1fr}.stock-numbers,.price-row{grid-template-columns:1fr}.top-actions{width:100%}.stock-filter-btn{flex:1}}
+
+/* ===== V10 - ALTERAR SOMENTE PREÇO DE VENDA ===== */
+.modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.55);display:none;align-items:center;justify-content:center;padding:20px;z-index:9999}.modal-backdrop.show{display:flex}.price-modal{width:min(520px,100%);background:#fff;border-radius:26px;box-shadow:0 30px 80px rgba(0,0,0,.25);padding:28px;position:relative}.price-modal h2{margin:0 0 6px;font-size:28px;color:#0f172a}.modal-subtitle{margin:0 0 22px;color:#64748b;font-weight:800}.modal-close{position:absolute;right:18px;top:16px;width:36px;height:36px;border:0;border-radius:50%;background:#f1f5f9;color:#0f172a;font-size:26px;line-height:1;cursor:pointer}.modal-field{margin-bottom:16px}.modal-field label{display:block;font-weight:900;color:#0f172a;margin-bottom:8px}.modal-field input{width:100%;height:52px;border:1px solid var(--line);border-radius:16px;background:#f8fafc;padding:0 14px;font-size:18px;font-weight:900;color:#0f172a}.modal-field input:disabled{background:#eef2f7;color:#475569}.modal-field small{display:block;margin-top:7px;color:#64748b;font-weight:700}.margin-preview{display:flex;align-items:center;justify-content:space-between;background:#fff7df;border:1px solid #f3d178;border-radius:18px;padding:16px;margin:18px 0}.margin-preview span{font-weight:900;color:#725000}.margin-preview strong{font-size:26px;color:#0f172a}.modal-actions{display:flex;gap:12px;justify-content:flex-end}.modal-actions .btn-login{width:auto;margin:0;padding:0 22px;height:50px}.modal-actions .muted-action{border:0;border-radius:16px;padding:0 20px;height:50px;font-weight:900;cursor:pointer;background:#f1f5f9;color:#0f172a}.admin-actions .btn-editar-preco{background:#dbeafe;color:#1d4ed8}.modo-funcionario .modal-backdrop{display:none!important}
+
+/* ===== V11 - ADICIONAR PRODUTO MANUAL + CÓDIGO INTERNO ===== */
+.product-modal{width:min(880px,100%);max-height:92vh;overflow:auto}.modal-grid{grid-template-columns:repeat(2,1fr);gap:14px}.product-modal .modal-field{margin-bottom:0}.product-modal input[type="file"]{padding:12px;height:auto;background:#fff}.stock-info p b{color:#0f172a}.product small{line-height:1.25}.top-actions #btnAddProduct{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#111;border-color:transparent}.modo-funcionario #btnAddProduct{display:none!important}@media(max-width:720px){.modal-grid{grid-template-columns:1fr}.product-modal{padding:22px}}
+
+/* ===== V14 - CARTÕES E CONTA + MODAL DE PAGAMENTO ===== */
+.config-form select,.payment-form select{width:100%;border:1px solid #d8dee9;border-radius:18px;background:#f8fafc;padding:17px 18px;font-size:16px;outline:none;margin-top:8px;font-weight:800;color:#253044}.payment-config-grid .panel-wide{grid-column:span 2}.gateway-box{background:#f8fafc;border:1px solid var(--line);border-radius:22px;padding:18px;margin-top:4px}.gateway-box h3{margin:0 0 8px}.gateway-box p{color:var(--muted);font-weight:700}.payment-actions{margin-top:18px}.payment-actions .btn-primary{width:auto}.payment-link{display:inline-flex;margin-top:10px}.gateway-checklist{display:grid;gap:10px}.check-item{display:flex;gap:10px;align-items:center;border:1px solid var(--line);background:#f8fafc;border-radius:14px;padding:13px}.check-item.ok{background:#ecfdf3;border-color:#bbf7d0}.check-item.wait{background:#fff7ed;border-color:#fed7aa}.payment-modal{width:min(760px,100%)}.payment-total{background:linear-gradient(135deg,#07172c,#0d2442);color:#fff;border-radius:22px;padding:18px;margin-bottom:18px;display:grid;gap:4px}.payment-total span{font-weight:800;color:#d8e2f2}.payment-total strong{font-size:38px}.payment-total small{color:#d8e2f2}.payment-choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.payment-choice-grid button{border:1px solid var(--line);background:#fff;border-radius:18px;padding:16px;text-align:left;cursor:pointer;box-shadow:0 8px 18px rgba(15,23,42,.05);display:grid;gap:5px}.payment-choice-grid button:hover{border-color:#96b8ef;box-shadow:0 14px 28px rgba(15,23,42,.10);transform:translateY(-1px)}.payment-choice-grid span{font-size:28px}.payment-choice-grid b{font-size:18px;color:#0f172a}.payment-choice-grid small{color:var(--muted);font-weight:800}.payment-note{margin-top:14px;background:#fff7df;border:1px solid #f3d178;border-radius:16px;padding:13px;font-weight:800;color:#725000}.pay-grid{grid-template-columns:repeat(2,1fr)}
+@media(max-width:1180px){.payment-config-grid .panel-wide{grid-column:span 2}}
+@media(max-width:700px){.payment-config-grid .panel-wide{grid-column:span 1}.payment-choice-grid{grid-template-columns:1fr}.payment-actions{flex-direction:column}.payment-actions .btn-primary,.payment-actions .muted-action{width:100%}}
+
+/* ===== V16 - MENU FISCAL / SEFAZ PRÓPRIO ===== */
+.fiscal-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}.fiscal-tabs button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:12px 16px;font-weight:900;color:#0f172a;cursor:pointer;box-shadow:0 4px 12px rgba(15,23,42,.04)}.fiscal-tabs button.active{background:var(--navy);color:#fff;border-color:var(--navy)}.hidden{display:none!important}.fiscal-grid .panel-wide{grid-column:span 2}.fiscal-status-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}.fiscal-status-list span{background:#f8fafc;border:1px solid var(--line);border-radius:14px;padding:14px;font-weight:900;color:#0f172a}.fiscal-flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px}.fiscal-flow div{background:#f8fafc;border:1px solid var(--line);border-radius:16px;padding:14px 16px;font-weight:900;color:#0f172a}.fiscal-flow span{font-weight:900;color:var(--gold);font-size:22px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:18px}.table-wrap table{width:100%;border-collapse:collapse;background:#fff}.table-wrap th,.table-wrap td{padding:14px;border-bottom:1px solid var(--line);text-align:left;font-size:14px}.table-wrap th{background:#f8fafc;font-weight:900;color:#0f172a}.table-wrap td{color:#475467;font-weight:700}.table-wrap tr:last-child td{border-bottom:0}@media(max-width:1180px){.fiscal-grid .panel-wide{grid-column:span 2}.fiscal-flow{align-items:stretch}.fiscal-flow div{flex:1 1 180px}.fiscal-flow span{display:none}}@media(max-width:700px){.fiscal-grid .panel-wide{grid-column:span 1}.fiscal-tabs{display:grid;grid-template-columns:1fr}.fiscal-status-list{grid-template-columns:1fr}}
+
+
+/* FINANCEIRO PREMIUM */
+.financeiro-premium-page .main-content{background:linear-gradient(180deg,#f5f7fb 0%,#eef2f7 100%)}
+.finance-hero{background:linear-gradient(135deg,#07172c,#0d2442);color:#fff;border:0;box-shadow:0 18px 45px rgba(15,23,42,.18)}
+.finance-hero h1{color:#fff;font-size:38px;margin:6px 0 8px}
+.finance-hero p{color:#d8e2f2;max-width:780px}
+.finance-kicker{display:inline-flex;background:rgba(246,201,69,.15);color:#f6c945;border:1px solid rgba(246,201,69,.28);border-radius:999px;padding:8px 12px;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.8px}
+.finance-hero .top-actions a{background:#fff;color:#07172c;border-radius:14px;padding:12px 14px;font-weight:900;box-shadow:none}
+.finance-filterbar{display:flex;align-items:center;gap:10px;margin:22px 0 18px;flex-wrap:wrap}
+.finance-filterbar button,.finance-filterbar select{border:1px solid var(--line);background:#fff;border-radius:999px;padding:12px 18px;font-weight:900;color:#344054;cursor:pointer}
+.finance-filterbar button.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.finance-filterbar select{margin-left:auto;min-width:170px}
+.finance-metrics{display:grid;grid-template-columns:repeat(6,minmax(150px,1fr));gap:16px;margin-bottom:20px}
+.finance-card{background:#fff;border:1px solid rgba(226,232,240,.9);border-radius:24px;padding:20px;box-shadow:0 18px 45px rgba(15,23,42,.06);position:relative;overflow:hidden}
+.finance-card.highlight{background:linear-gradient(135deg,#fff,#fff8df);border-color:#f2d58a}
+.finance-card span{font-size:28px}
+.finance-card p{margin:12px 0 6px;color:#667085;font-weight:800}
+.finance-card h2{margin:0;font-size:24px;letter-spacing:-.8px}
+.finance-card small{display:block;margin-top:8px;color:#667085;font-weight:800}
+.finance-dashboard-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px;align-items:start}
+.finance-panel{background:#fff;border:1px solid rgba(226,232,240,.9);border-radius:26px;padding:22px;box-shadow:0 18px 45px rgba(15,23,42,.06)}
+.finance-panel.large{grid-column:span 2}
+.panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:16px}
+.panel-head h3{margin:0;font-size:20px}
+.panel-head p{margin:5px 0 0;color:#667085;font-weight:700}
+.mini-btn{border:0;background:#07172c;color:#fff;border-radius:12px;padding:10px 12px;font-weight:900;cursor:pointer}
+.finance-list{display:grid;gap:10px}
+.finance-list>div{display:grid;grid-template-columns:1fr auto;gap:6px;align-items:center;background:#f8fafc;border:1px solid #edf0f5;border-radius:16px;padding:13px}
+.finance-list span{font-weight:900}
+.finance-list small{grid-column:1/-1;color:#667085;font-weight:800}
+.stat-stack{display:grid;gap:10px}
+.stat-stack div{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid #edf0f5;padding:12px 0}
+.stat-stack span{color:#667085;font-weight:800}
+.stat-stack strong{font-weight:900}
+.premium-input{width:100%;border:1px solid #d8dee9;border-radius:16px;background:#f8fafc;padding:14px;margin-bottom:12px}
+.xml-result{margin-top:14px}
+.xml-card{background:#f8fafc;border:1px solid #edf0f5;border-radius:18px;padding:16px}
+.xml-card h4{margin:0 0 10px}
+.quick-finance-grid{display:grid;grid-template-columns:repeat(4,minmax(160px,1fr));gap:12px}
+.quick-finance-grid a{background:#f8fafc;border:1px solid #edf0f5;border-radius:18px;padding:16px;display:grid;gap:6px;font-weight:900}
+.quick-finance-grid small{color:#667085;font-weight:800}
+.green{color:var(--green)!important}.red{color:var(--red)!important}
+
+@media (max-width:1200px){
+  .finance-metrics{grid-template-columns:repeat(3,1fr)}
+  .finance-dashboard-grid{grid-template-columns:1fr 1fr}
+  .finance-panel.large{grid-column:span 2}
+  .quick-finance-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:760px){
+  .finance-metrics,.finance-dashboard-grid,.quick-finance-grid{grid-template-columns:1fr}
+  .finance-panel.large{grid-column:span 1}
+  .finance-filterbar select{margin-left:0;width:100%}
+  .finance-hero .top-actions{width:100%;display:grid;grid-template-columns:1fr}
+}
+
+
+/* CONTAS FIXAS + MARKUP */
+.link-action{border:0;background:transparent;color:var(--blue);font-weight:900;cursor:pointer;margin-left:8px}
+.link-action.danger{color:var(--red)}
+.markup-result{min-height:320px}
+.markup-box h2{margin-top:0;font-size:28px}
+.markup-grid{display:grid;grid-template-columns:repeat(2,minmax(170px,1fr));gap:12px}
+.markup-grid div{background:#f8fafc;border:1px solid #edf0f5;border-radius:18px;padding:16px}
+.markup-grid span{display:block;color:#667085;font-weight:800;margin-bottom:8px}
+.markup-grid strong{font-size:20px;font-weight:900}
+.config-form select.premium-input{height:auto}
+
+@media(max-width:760px){
+  .markup-grid{grid-template-columns:1fr}
+}
+
+
+/* V21 - Contas fixas dentro do financeiro + markup automático no estoque */
+.contas-inline-grid{display:grid;grid-template-columns:minmax(280px,380px) 1fr;gap:18px;align-items:start}
+.contas-form-inline{background:#f8fafc;border:1px solid #edf0f5;border-radius:20px;padding:16px}
+.markup-auto{background:#fff7df!important;border-color:#f2d58a!important;min-width:150px}
+.markup-auto small{display:block;margin-top:3px;font-size:11px;font-weight:900;color:#667085}
+.admin-actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn-aplicar-markup{border:0;border-radius:12px;background:#07172c;color:#fff;padding:10px 12px;font-weight:900;cursor:pointer}
+@media(max-width:900px){.contas-inline-grid{grid-template-columns:1fr}}
+
+
+/* V22 - Markup IA Inteligente */
+.markup-auto{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  padding:10px 12px;
+  border-radius:14px;
+  font-weight:900;
+}
+.markup-auto b{
+  font-size:15px;
+}
+.markup-auto.green{
+  background:#ecfdf3!important;
+  border:1px solid #bbf7d0;
+}
+.markup-auto.red{
+  background:#fef2f2!important;
+  border:1px solid #fecaca;
+}
+.markup-auto.warning{
+  background:#fff7ed!important;
+  border:1px solid #fed7aa;
+}
+.markup-auto.blue{
+  background:#eff6ff!important;
+  border:1px solid #bfdbfe;
+}
+
+
+/* V24 - Somente organização do financeiro */
+.finance-dashboard-grid{
+  gap:14px !important;
+  align-items:start;
+}
+
+.finance-panel{
+  margin:0 !important;
+}
+
+.finance-panel.large{
+  min-height:auto !important;
+}
+
+.finance-metrics{
+  gap:12px !important;
+  margin-bottom:14px !important;
+}
+
+.finance-card{
+  min-height:unset !important;
+}
+
+.panel-head{
+  margin-bottom:10px !important;
+}
+
+.finance-list{
+  gap:8px !important;
+}
+
+.finance-list > div{
+  margin:0 !important;
+}
+
+.quick-finance-grid{
+  gap:10px !important;
+}
+
+.contas-inline-grid{
+  gap:14px !important;
+  align-items:start !important;
+}
+
+.finance-filterbar{
+  margin:12px 0 !important;
+}
+
+canvas{
+  display:block;
+  width:100% !important;
+}
+
+@media(max-width:1200px){
+  .finance-dashboard-grid{
+    gap:12px !important;
+  }
+}
+
+
+/* V25 - organização final do financeiro */
+.finance-dashboard-grid{
+  grid-template-columns: 1.6fr 0.9fr !important;
+  gap:16px !important;
+  align-items:start !important;
+}
+
+.finance-panel.large{
+  grid-column: auto !important;
+}
+
+.finance-panel:first-child{
+  min-height:auto !important;
+}
+
+.finance-panel{
+  height:fit-content;
+}
+
+.finance-list > div{
+  min-height:auto !important;
+}
+
+.quick-finance-grid{
+  grid-template-columns:repeat(2,minmax(150px,1fr)) !important;
+}
+
+#chartFluxo{
+  height:260px !important;
+}
+
+.finance-panel canvas{
+  width:100% !important;
+}
+
+@media(max-width:1100px){
+  .finance-dashboard-grid{
+    grid-template-columns:1fr !important;
+  }
+}
+
+
+/* ===== MovenPro+ Restaurante - acréscimos sem alterar estrutura original ===== */
+.mesa-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:16px;
+}
+.mesa-card{
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:22px;
+  padding:18px;
+  min-height:136px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:space-between;
+  box-shadow:var(--shadow);
+  cursor:pointer;
+  text-align:left;
+}
+.mesa-card strong{font-size:22px;color:var(--navy)}
+.mesa-card span{font-weight:900;color:var(--muted)}
+.mesa-card b{font-size:20px;color:var(--green)}
+.mesa-card.ocupada{border-color:#fde68a;background:linear-gradient(180deg,#fff,#fff9e8)}
+.mesa-card.fechamento{border-color:#bfdbfe;background:linear-gradient(180deg,#fff,#eff6ff)}
+.mesa-selected-head{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.mesa-selected-head h2{margin:0;font-size:28px;color:var(--navy)}
+.mesa-selected-head span{padding:8px 12px;border-radius:999px;background:#f1f5f9;font-weight:900}
+.mesa-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
+.mesa-actions .danger{color:var(--red)}
+.garcom-main{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 380px;
+  gap:22px;
+  padding:24px;
+}
+.garcom-cart{position:sticky;top:92px;height:max-content}
+.garcom-page .product-grid{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+@media(max-width:900px){
+  .garcom-main{grid-template-columns:1fr;padding:16px}
+  .garcom-cart{position:static}
+  .mesa-actions{grid-template-columns:1fr}
+}
+
+
+/* ===== MovenPro+ ajustes restaurante v2 ===== */
+.cozinha-board{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+.cozinha-col{min-height:420px}
+.cozinha-list{display:grid;gap:14px}
+.cozinha-card{
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:16px;
+  background:#fff;
+  box-shadow:0 10px 24px rgba(15,23,42,.06);
+}
+.cozinha-card-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.cozinha-card-head strong{font-size:22px;color:var(--navy)}
+.cozinha-card-head span{font-weight:900;color:var(--gold)}
+.top-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+@media(max-width:980px){
+  .cozinha-board{grid-template-columns:1fr}
+  .top-actions{width:100%}
+  .top-actions .btn-primary{width:100%}
+}
+
+
+/* ===== Fullscreen restaurante ===== */
+.fullscreen-mode .sidebar{
+  transform:translateX(-110%);
+  opacity:0;
+  pointer-events:none;
+}
+.fullscreen-mode .main-content{
+  margin-left:0 !important;
+  width:100% !important;
+}
+.fullscreen-mode .topbar{
+  padding-left:12px;
+}
+.conferencia-lista{
+  display:grid;
+  gap:12px;
+  margin:18px 0;
+}
+.conferencia-item{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px;
+  border-radius:16px;
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+}
+.pagamento-acoes{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+  margin-top:18px;
+}
+@media(max-width:768px){
+  .pagamento-acoes{
+    grid-template-columns:1fr;
+  }
+}
+
+/* ===== Correção MovenPro+ V4: fullscreen mesas/cozinha sem espaço lateral ===== */
+.fullscreen-mode{
+  overflow:auto;
+}
+.fullscreen-mode .sidebar,
+.fullscreen-mode .drawer{
+  display:none !important;
+}
+.fullscreen-mode .main-content{
+  margin-left:0 !important;
+  padding-left:24px !important;
+  padding-right:24px !important;
+  width:100vw !important;
+  max-width:none !important;
+}
+.fullscreen-mode .topbar,
+.fullscreen-mode .panel,
+.fullscreen-mode .dashboard-grid,
+.fullscreen-mode .metric-grid,
+.fullscreen-mode .mesa-grid,
+.fullscreen-mode .cozinha-board{
+  width:100% !important;
+  max-width:none !important;
+}
+.fullscreen-mode .mesa-grid{
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr)) !important;
+}
+.mesas-payment-panel{
+  margin-top:18px;
+}
+.mesas-payment-panel .shortcuts{
+  grid-template-columns:repeat(6,minmax(0,1fr));
+}
+@media(max-width:1100px){
+  .mesas-payment-panel .shortcuts{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+}
+@media(max-width:720px){
+  .mesas-payment-panel .shortcuts{
+    grid-template-columns:1fr;
+  }
+}
+
+
+/* ===== Excluir produto discreto ===== */
+.stock-card{
+  position:relative;
+}
+
+.btn-delete-stock{
+  position:absolute;
+  top:12px;
+  right:14px;
+  width:auto;
+  height:auto;
+  border:0;
+  background:transparent;
+  color:#111827;
+  font-size:20px;
+  line-height:1;
+  font-weight:800;
+  cursor:pointer;
+  z-index:80;
+  padding:2px 6px;
+  opacity:.55;
+}
+
+.btn-delete-stock:hover{
+  opacity:1;
+  color:#000;
+  background:transparent;
+}
+
+
+/* V23 - correção menu lateral rolável + área Bar/Impressoras */
+.sidebar{overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;}
+.sidebar nav{padding-bottom:10px;}
+.sidebar::-webkit-scrollbar{width:8px;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:999px;}
+.printer-grid{display:grid;grid-template-columns:repeat(2,minmax(260px,1fr));gap:18px;margin-top:16px}
+.printer-box{background:#f8fafc;border:1px solid var(--line);border-radius:22px;padding:18px}
+.printer-box h3{margin:0 0 12px}
+.printer-box label{display:block;font-weight:900;margin:12px 0 7px;color:#253044}
+.printer-box input,.printer-box select{width:100%;border:1px solid #d8dee9;border-radius:16px;background:#fff;padding:13px 14px;font-weight:800;outline:none}
+.printer-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.printer-actions button,.btn-secondary{border:1px solid var(--line);background:#fff;border-radius:14px;padding:12px 14px;font-weight:900;cursor:pointer}
+.printer-note{margin-top:12px;color:var(--muted);font-weight:700;font-size:13px}
+@media(max-width:800px){.printer-grid{grid-template-columns:1fr}.sidebar{max-height:100vh}}
+
+
+/* V24 - Correção certificada: menu lateral com rolagem real sem mudar visual */
+.sidebar{
+  height:100vh;
+  max-height:100vh;
+  overflow:hidden;
+  min-height:0;
+}
+.sidebar nav{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+  flex:1 1 auto;
+  min-height:0;
+  overflow-y:auto;
+  overflow-x:hidden;
+  padding-right:4px;
+  padding-bottom:14px;
+  scrollbar-width:thin;
+}
+.sidebar nav::-webkit-scrollbar{width:8px;}
+.sidebar nav::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:999px;}
+.sidebar-status{
+  flex:0 0 auto;
+  margin-top:0;
+}
+
+
+/* V24.1 - Rolagem também no menu gaveta do PDV/Garçom */
+.drawer{
+  overflow-y:auto;
+  overflow-x:hidden;
+  max-height:100vh;
+  scrollbar-width:thin;
+}
+.drawer::-webkit-scrollbar{width:8px;}
+.drawer::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:999px;}
+
+
+/* V25 - Barra de rolagem do menu mais sutil, sem mudar o visual */
+
+/* Admin desktop: remove botao antigo de menu mobile que ficou publicado em algumas telas */
+#appMenuBtn,
+.app-menu-btn {
+  display: none !important;
+}
+.sidebar nav{
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,.10) transparent;
+  padding-right: 3px;
+}
+.sidebar nav::-webkit-scrollbar{width:4px;}
+.sidebar nav::-webkit-scrollbar-track{background:transparent;}
+.sidebar nav::-webkit-scrollbar-thumb{background:rgba(255,255,255,.10);border-radius:999px;}
+.sidebar nav:hover::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-track{background:transparent;}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,.10);border-radius:999px;}
+
+
+/* V26 - Área de backup manual sem alterar padrão visual */
+.backup-grid{display:grid;grid-template-columns:repeat(3,minmax(220px,1fr));gap:18px;margin-top:16px}
+.backup-box{background:#f8fafc;border:1px solid var(--line);border-radius:22px;padding:18px}
+.backup-box h3{margin:0 0 10px;color:#253044}
+.backup-box p{color:var(--muted);font-weight:700;font-size:13px;line-height:1.45;min-height:54px}
+.backup-box button{margin-top:8px}
+.backup-note{margin-top:12px;color:var(--muted);font-weight:700;font-size:13px}
+@media(max-width:1000px){.backup-grid{grid-template-columns:1fr}}
+
+
+/* V27 - Corrige botão Salvar impressoras para manter padrão laranja premium */
+.printer-actions #savePrintersBtn,
+.printer-actions button#savePrintersBtn.btn-primary{
+  background:linear-gradient(135deg,var(--gold),var(--gold-2)) !important;
+  color:#161616 !important;
+  border:0 !important;
+  box-shadow:0 10px 22px rgba(216,155,19,.24) !important;
+}
+.printer-actions #savePrintersBtn:hover{filter:brightness(.97)}

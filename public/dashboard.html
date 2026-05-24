@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovenPro+ | Dashboard</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css?v=bar-menu-sutil-20260517-2" />
+</head>
+<body class="app-page">
+  <aside class="sidebar">
+    <div class="brand-logo brand-logo-sidebar">
+      <svg class="brand-symbol" viewBox="0 0 120 120" aria-hidden="true"><path class="m-left" d="M18 96V31c0-8 10-12 16-6l28 29 17-17H63V21h43v43H90V48L62 76 36 49v47H18z"/><path class="m-arrow" d="M40 28l22 22 31-31h-16V5h40v40h-14V30L62 71 30 39z"/></svg>
+      <div class="brand-word"><h1>Moven<span>Pro+</span></h1><p>GESTÃO INTELIGENTE</p></div>
+    </div>
+    <nav>
+      <a class="active" href="dashboard.html" data-admin-only>🏠 Dashboard</a>
+      <a class="" href="vendas.html">🛒 PDV / Vendas</a>
+      <a class="" href="mesas.html">🍽️ Mesas</a>
+      <a class="" href="garcom.html">📱 Garçom Mobile</a>
+      <a class="" href="cozinha.html">👨‍🍳 Cozinha</a>
+      <a class="" href="bar.html" data-page-link="bar">🍹 Bar</a>
+      <a class="" href="alertas.html" data-admin-only>🔔 Alertas</a>
+      <a class="" href="estoque.html">🏷️ Estoque</a>
+      <a class="" href="financeiro.html" data-admin-only>💰 Financeiro</a>
+      <a class="" href="cartoes.html" data-admin-only>💳 Cartões e Conta</a>
+      <a class="" href="monitor-nfe.html" data-admin-only>📥 Monitor NF-e</a>
+      <a class="" href="relatorios.html" data-admin-only>📊 Relatórios</a>
+      <a class="" href="fiscal.html" data-admin-only>🧾 Fiscal</a>
+      <a class="" href="config.html" data-admin-only>⚙️ Configurações</a>
+      <a id="logoutBtn" href="#">🚪 Sair</a>
+    </nav>
+    <div class="sidebar-status">● Sistema online</div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div>
+        <h1>Olá, <span id="userName">Admin</span> 👋</h1>
+        <p>Resumo rápido do restaurante. Mesas, pedidos, caixa e operação em tempo real.</p>
+      </div>
+      <div class="top-actions"><span id="empresaTopo">Loja Matriz</span><span>Online</span></div>
+    </header>
+
+    <section class="metric-grid">
+      <article class="metric-card"><span>🛒</span><p>Vendas hoje</p><h2>R$ 8.642,50</h2><small class="green">↗ 18,6% vs ontem</small></article>
+      <article class="metric-card"><span>💰</span><p>Lucro estimado</p><h2>R$ 2.184,80</h2><small class="green">↗ margem 25,3%</small></article>
+      <article class="metric-card"><span>⚠️</span><p>Estoque baixo</p><h2>5</h2><small>abrir Estoque</small></article>
+      <article class="metric-card"><span>📉</span><p>Produtos parados</p><h2>3</h2><small class="red">↘ baixo giro</small></article>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="panel"><h3>Alertas principais</h3><p>⚠️ 5 produtos com estoque baixo</p><p>⏳ 4 produtos com validade próxima</p><p>📉 3 produtos parados há mais de 15 dias</p><p>💵 1 diferença de caixa para conferir</p></article>
+      <article class="panel"><h3>Comprar hoje</h3><ol><li>Coca-Cola 600ml — comprar 24</li><li>Skol Lata — comprar 36</li><li>Água Mineral — comprar 18</li></ol></article>
+      <article class="panel"><h3>Financeiro rápido</h3><p>Dinheiro <b>R$ 520,00</b></p><p>PIX <b>R$ 780,00</b></p><p>Cartão <b>R$ 1.240,00</b></p><hr><h2 class="green">R$ 2.540,00</h2></article>
+      <article class="panel"><h3>Produtos mais vendidos</h3><ol><li>Coca-Cola 600ml</li><li>Skol Lata</li><li>Água Mineral</li><li>Doritos</li><li>Marlboro</li></ol></article>
+    </section>
+
+    <section class="quick-actions">
+      <a href="vendas.html">🛒 Nova venda<br><b>F2</b></a>
+      <a href="vendas.html#caixa">💵 Caixa<br><b>Resumo / Fechar</b></a>
+      <a href="estoque.html">📦 Estoque<br><b>F5</b></a>
+      <a href="relatorios.html">📊 Relatórios<br><b>PDF</b></a>
+      <a href="config.html">⚙️ Configurações<br><b>Admin</b></a><a href="alertas.html">🔔 Alertas<br><b>Central</b></a>
+    </section>
+  
+    <section class="dashboard-grid">
+      <article class="panel">
+        <h3>Operação restaurante</h3>
+        <p>Controle de mesas, pedidos do garçom e fechamento no PDV.</p>
+        <div class="shortcuts">
+          <a href="mesas.html"><button type="button">🍽️ Abrir Mesas</button></a>
+          <a href="garcom.html"><button type="button">📱 Garçom Mobile</button></a>
+        </div>
+      </article>
+      <article class="panel">
+        <h3>Fluxo recomendado</h3>
+        <p>1. Garçom lança pedido pela mesa.</p>
+        <p>2. Pedido entra na fila da cozinha.</p>
+        <p>3. PDV fecha a conta da mesa.</p>
+      </article>
+    </section>
+
+  </main>
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>
+

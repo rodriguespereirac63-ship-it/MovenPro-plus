@@ -1,0 +1,106 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function usuarioUid() {
+      return get(/databases/$(database)/documents/usuarios/$(request.auth.uid));
+    }
+
+    function usuarioUidExiste() {
+      return signedIn() && exists(/databases/$(database)/documents/usuarios/$(request.auth.uid));
+    }
+
+    function perfilAtivo() {
+      return signedIn()
+        && usuarioUidExiste()
+        && usuarioUid().data.ativo != false;
+    }
+
+    function empresaDoUsuario() {
+      return usuarioUidExiste() ? usuarioUid().data.empresaId : '';
+    }
+
+    function mesmoEmailDoUsuario() {
+      return signedIn()
+        && resource.data.email is string
+        && request.auth.token.email is string
+        && resource.data.email == request.auth.token.email;
+    }
+
+    function ehMesmoUsuario(userId) {
+      return signedIn() && userId == request.auth.uid;
+    }
+
+    function ehAdmin() {
+      return perfilAtivo()
+        && (usuarioUid().data.perfil in ['admin', 'administrador', 'adm', 'gerente']);
+    }
+
+    function mesmaEmpresa(empresaId) {
+      return perfilAtivo() && empresaDoUsuario() == empresaId;
+    }
+
+    function docMesmaEmpresa() {
+      return perfilAtivo()
+        && resource.data.empresaId is string
+        && resource.data.empresaId == empresaDoUsuario();
+    }
+
+    function novoDocMesmaEmpresa() {
+      return perfilAtivo()
+        && request.resource.data.empresaId is string
+        && request.resource.data.empresaId == empresaDoUsuario();
+    }
+
+    // Perfis de usuário. Cada usuário lê seu próprio perfil; admin gerencia usuários da mesma empresa.
+    match /usuarios/{userId} {
+      allow get: if ehMesmoUsuario(userId) || mesmoEmailDoUsuario() || ehAdmin();
+      allow list: if signedIn() && request.query.limit <= 1;
+      allow create: if signedIn()
+        && request.resource.data.email == request.auth.token.email;
+      allow update: if ehMesmoUsuario(userId) || (ehAdmin() && request.resource.data.empresaId == empresaDoUsuario());
+      allow delete: if ehAdmin() && resource.data.empresaId == empresaDoUsuario();
+    }
+
+    // Compatibilidade com coleção antiga "usuario".
+    match /usuario/{userId} {
+      allow get: if ehMesmoUsuario(userId) || mesmoEmailDoUsuario() || ehAdmin();
+      allow list: if signedIn() && request.query.limit <= 1;
+      allow create: if signedIn()
+        && request.resource.data.email == request.auth.token.email;
+      allow update: if ehMesmoUsuario(userId) || ehAdmin();
+      allow delete: if ehAdmin();
+    }
+
+    // Nova estrutura multiempresa recomendada.
+    match /empresas/{empresaId} {
+      allow read: if mesmaEmpresa(empresaId) || ehAdmin();
+      allow create, update: if mesmaEmpresa(empresaId) || ehAdmin();
+      allow delete: if ehAdmin() && empresaDoUsuario() == empresaId;
+
+      match /{subcolecao}/{documento} {
+        allow read: if mesmaEmpresa(empresaId) || ehAdmin();
+        allow create, update: if mesmaEmpresa(empresaId) || ehAdmin();
+        allow delete: if ehAdmin() && empresaDoUsuario() == empresaId;
+      }
+
+      match /{subcolecao}/{documento}/{resto=**} {
+        allow read: if mesmaEmpresa(empresaId) || ehAdmin();
+        allow create, update: if mesmaEmpresa(empresaId) || ehAdmin();
+        allow delete: if ehAdmin() && empresaDoUsuario() == empresaId;
+      }
+    }
+
+    // Coleções raiz antigas: liberadas somente quando o documento tem empresaId igual ao perfil logado.
+    match /{colecao}/{documento} {
+      allow read: if docMesmaEmpresa();
+      allow create: if novoDocMesmaEmpresa();
+      allow update: if docMesmaEmpresa() && novoDocMesmaEmpresa();
+      allow delete: if ehAdmin() && docMesmaEmpresa();
+    }
+  }
+}

@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovenPro+ | Garçom Mobile</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css?v=bar-menu-sutil-20260517-2" />
+</head>
+<body class="pdv-page garcom-page">
+  <aside id="drawer" class="drawer">
+    <div class="brand-logo brand-logo-sidebar">
+      <svg class="brand-symbol" viewBox="0 0 120 120" aria-hidden="true">
+        <path class="m-left" d="M18 96V31c0-8 10-12 16-6l28 29 17-17H63V21h43v43H90V48L62 76 36 49v47H18z"/>
+        <path class="m-arrow" d="M40 28l22 22 31-31h-16V5h40v40h-14V30L62 71 30 39z"/>
+      </svg>
+      <div class="brand-word"><h1>Moven<span>Pro+</span></h1><p>GARÇOM MOBILE</p></div>
+    </div>
+    
+    <a href="dashboard.html" data-admin-only>🏠 Dashboard</a>
+    <a href="vendas.html">🛒 PDV / Vendas</a>
+    <a href="mesas.html">🍽️ Mesas</a>
+    <a class="active" href="garcom.html">📱 Garçom Mobile</a>
+    <a href="cozinha.html">👨‍🍳 Cozinha</a>
+    <a href="bar.html" data-page-link="bar">🍹 Bar</a>
+    <a href="alertas.html" data-admin-only>🔔 Alertas</a>
+    <a href="estoque.html">🏷️ Estoque</a>
+    <a href="financeiro.html" data-admin-only>💰 Financeiro</a>
+    <a href="cartoes.html" data-admin-only>💳 Cartões e Conta</a>
+    <a href="monitor-nfe.html" data-admin-only>📥 Monitor NF-e</a>
+    <a href="relatorios.html" data-admin-only>📊 Relatórios</a>
+    <a href="fiscal.html" data-admin-only>🧾 Fiscal</a>
+    <a href="config.html" data-admin-only>⚙️ Configurações</a>
+    <a id="logoutBtn" href="#">🚪 Sair</a>
+  </aside>
+
+  <header class="pdv-topbar">
+    <button id="menuBtn" class="menu-btn">☰</button>
+    <div><h1>Garçom Mobile 📱</h1><p>Lance pedidos por mesa de forma rápida.</p></div>
+    <div class="pdv-info"><span id="empresaTopo">Restaurante</span><span>Online</span></div>
+  </header>
+
+  <main class="garcom-main">
+    <section class="panel">
+      <h3>Escolha a mesa</h3>
+      <select id="mesaSelect" class="search"></select>
+      <input id="buscaProdutoGarcom" class="search" placeholder="Buscar item do cardápio..." />
+      <div class="chips"><button class="active" data-cat="Todos">Todos</button><button data-cat="Bebidas">Bebidas</button><button data-cat="Pratos">Pratos</button><button data-cat="Lanches">Lanches</button><button data-cat="Sobremesas">Sobremesas</button></div>
+      <div id="cardapioGrid" class="product-grid"></div>
+    </section>
+
+    <aside class="cart-panel garcom-cart">
+      <h2>Pedido da mesa</h2>
+      <div id="pedidoItens"></div>
+      <textarea id="obsPedido" placeholder="Observação: sem cebola, ponto da carne, etc."></textarea>
+      <div class="totals"><p>Total <b id="pedidoTotal">R$ 0,00</b></p></div>
+      <button id="btnEnviarPedido" class="btn-finish" type="button">Enviar pedido para cozinha/bar/bar</button>
+    </aside>
+  </main>
+
+  <script type="module" src="js/garcom.js?v=fluxo-mesas-20260517"></script>
+</body>
+</html>
+

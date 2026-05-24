@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovenPro+ | Contas Fixas</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css?v=bar-menu-sutil-20260517-2" />
+</head>
+<body class="app-page financeiro-premium-page">
+  <aside class="sidebar">
+    <div class="brand-logo brand-logo-sidebar">
+      <svg class="brand-symbol" viewBox="0 0 120 120" aria-hidden="true"><path class="m-left" d="M18 96V31c0-8 10-12 16-6l28 29 17-17H63V21h43v43H90V48L62 76 36 49v47H18z"/><path class="m-arrow" d="M40 28l22 22 31-31h-16V5h40v40h-14V30L62 71 30 39z"/></svg>
+      <div class="brand-word"><h1>Moven<span>Pro+</span></h1><p>GESTÃO INTELIGENTE</p></div>
+    </div>
+    <nav>
+      <a class="" href="dashboard.html" data-admin-only>🏠 Dashboard</a>
+      <a class="" href="vendas.html">🛒 PDV / Vendas</a>
+      <a class="" href="mesas.html">🍽️ Mesas</a>
+      <a class="" href="garcom.html">📱 Garçom Mobile</a>
+      <a class="" href="cozinha.html">👨‍🍳 Cozinha</a>
+      <a class="" href="bar.html" data-page-link="bar">🍹 Bar</a>
+      <a class="" href="alertas.html" data-admin-only>🔔 Alertas</a>
+      <a class="" href="estoque.html">🏷️ Estoque</a>
+      <a class="" href="financeiro.html" data-admin-only>💰 Financeiro</a>
+      <a class="" href="cartoes.html" data-admin-only>💳 Cartões e Conta</a>
+      <a class="" href="monitor-nfe.html" data-admin-only>📥 Monitor NF-e</a>
+      <a class="" href="relatorios.html" data-admin-only>📊 Relatórios</a>
+      <a class="" href="fiscal.html" data-admin-only>🧾 Fiscal</a>
+      <a class="" href="config.html" data-admin-only>⚙️ Configurações</a>
+      <a id="logoutBtn" href="#">🚪 Sair</a>
+    </nav>
+    <div class="sidebar-status">● Sistema online</div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar finance-hero">
+      <div>
+        <span class="finance-kicker">Financeiro operacional</span>
+        <h1>Contas fixas</h1>
+        <p>Controle aluguel, água, luz, internet, contador, sistema, salários e despesas recorrentes que entram no cálculo do markup.</p>
+      </div>
+      <div class="top-actions">
+        <a href="financeiro.html">💰 Financeiro</a>
+        <a href="markup.html">🏷️ Markup</a>
+      </div>
+    </header>
+
+    <section class="finance-metrics">
+      <article class="finance-card highlight"><span>🏢</span><p>Total mensal fixo</p><h2 id="totalFixo">R$ 6.290,00</h2><small>base cadastrada</small></article>
+      <article class="finance-card"><span>⚡</span><p>Vence esta semana</p><h2>R$ 890,00</h2><small class="red">água + luz</small></article>
+      <article class="finance-card"><span>✅</span><p>Pagas no mês</p><h2>R$ 3.400,00</h2><small class="green">54% concluído</small></article>
+      <article class="finance-card"><span>📊</span><p>Impacto no markup</p><h2 id="impactoMarkup">8,5%</h2><small>sobre venda mensal prevista</small></article>
+    </section>
+
+    <section class="finance-dashboard-grid">
+      <article class="finance-panel">
+        <div class="panel-head"><div><h3>Cadastrar conta fixa</h3><p>Use para despesas mensais recorrentes.</p></div></div>
+        <form id="formContaFixa" class="config-form">
+          <label>Descrição</label>
+          <input id="contaDescricao" type="text" placeholder="Ex: Aluguel, água, luz..." required>
+          <label>Categoria</label>
+          <select id="contaCategoria" class="premium-input">
+            <option>Aluguel</option><option>Água</option><option>Luz</option><option>Internet</option><option>Contador</option><option>Funcionários</option><option>Sistema</option><option>Outros</option>
+          </select>
+          <label>Valor mensal</label>
+          <input id="contaValor" type="number" step="0.01" placeholder="0,00" required>
+          <label>Dia de vencimento</label>
+          <input id="contaDia" type="number" min="1" max="31" placeholder="10" required>
+          <button class="btn-primary" type="submit">Adicionar conta fixa</button>
+        </form>
+      </article>
+
+      <article class="finance-panel large">
+        <div class="panel-head">
+          <div><h3>Despesas recorrentes</h3><p>Esses valores podem alimentar automaticamente o cálculo de preço no estoque.</p></div>
+          <button id="btnResetContas" class="mini-btn" type="button">Restaurar exemplo</button>
+        </div>
+        <div id="listaContasFixas" class="finance-list"></div>
+      </article>
+
+      <article class="finance-panel large">
+        <div class="panel-head">
+          <div><h3>Integração com Markup</h3><p>O total de contas fixas vira custo operacional para sugerir preços mais seguros.</p></div>
+          <strong class="green">Ativo</strong>
+        </div>
+        <div class="quick-finance-grid">
+          <a href="markup.html">🏷️ <strong>Abrir Markup</strong><small>Calcular preço de venda</small></a>
+          <a href="estoque.html">📦 <strong>Ir para Estoque</strong><small>Produtos e custos</small></a>
+          <a href="financeiro.html">💰 <strong>Financeiro</strong><small>Resumo e gráficos</small></a>
+          <a href="monitor-nfe.html">📥 <strong>Monitor NF-e</strong><small>Entradas automáticas</small></a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script type="module" src="js/contas-fixas.js"></script>
+</body>
+</html>
+

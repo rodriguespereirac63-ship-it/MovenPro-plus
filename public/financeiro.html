@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovenPro+ | Financeiro Premium</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css?v=bar-menu-sutil-20260517-2" />
+</head>
+<body class="app-page financeiro-premium-page">
+  <aside class="sidebar">
+    <div class="brand-logo brand-logo-sidebar">
+      <svg class="brand-symbol" viewBox="0 0 120 120" aria-hidden="true"><path class="m-left" d="M18 96V31c0-8 10-12 16-6l28 29 17-17H63V21h43v43H90V48L62 76 36 49v47H18z"/><path class="m-arrow" d="M40 28l22 22 31-31h-16V5h40v40h-14V30L62 71 30 39z"/></svg>
+      <div class="brand-word"><h1>Moven<span>Pro+</span></h1><p>GESTÃO INTELIGENTE</p></div>
+    </div>
+    <nav>
+      <a class="" href="dashboard.html" data-admin-only>🏠 Dashboard</a>
+      <a class="" href="vendas.html">🛒 PDV / Vendas</a>
+      <a class="" href="mesas.html">🍽️ Mesas</a>
+      <a class="" href="garcom.html">📱 Garçom Mobile</a>
+      <a class="" href="cozinha.html">👨‍🍳 Cozinha</a>
+      <a class="" href="bar.html" data-page-link="bar">🍹 Bar</a>
+      <a class="" href="alertas.html" data-admin-only>🔔 Alertas</a>
+      <a class="" href="estoque.html">🏷️ Estoque</a>
+      <a class="active" href="financeiro.html" data-admin-only>💰 Financeiro</a>
+      <a class="" href="cartoes.html" data-admin-only>💳 Cartões e Conta</a>
+      <a class="" href="monitor-nfe.html" data-admin-only>📥 Monitor NF-e</a>
+      <a class="" href="relatorios.html" data-admin-only>📊 Relatórios</a>
+      <a class="" href="fiscal.html" data-admin-only>🧾 Fiscal</a>
+      <a class="" href="config.html" data-admin-only>⚙️ Configurações</a>
+      <a id="logoutBtn" href="#">🚪 Sair</a>
+    </nav>
+    <div class="sidebar-status">● Sistema online</div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar finance-hero">
+      <div>
+        <span class="finance-kicker">Módulo financeiro premium</span>
+        <h1>Financeiro inteligente</h1>
+        <p>Controle de caixa, cartões, contas, NF-e, estatísticas e resultado operacional do MovenPro.</p>
+      </div>
+      <div class="top-actions">
+        <a href="#contasFixas">🏢 Contas Fixas</a>
+        <a href="cartoes.html">💳 Cartões e Conta</a>
+        <a href="monitor-nfe.html">📥 Monitor NF-e</a>
+      </div>
+    </header>
+
+    <section class="finance-filterbar">
+      <button class="active" type="button">Hoje</button>
+      <button type="button">7 dias</button>
+      <button type="button">30 dias</button>
+      <button type="button">90 dias</button>
+      <select aria-label="Selecionar loja">
+        <option>Loja Matriz</option>
+        <option>Filial 01</option>
+      </select>
+    </section>
+
+    <section class="finance-metrics">
+      <article class="finance-card highlight">
+        <span>💰</span>
+        <p>Entradas</p>
+        <h2 id="mEntrada">R$ 18.642,50</h2>
+        <small class="green">+18% vs ontem</small>
+      </article>
+      <article class="finance-card">
+        <span>📤</span>
+        <p>Saídas</p>
+        <h2 id="mSaida">R$ 7.185,40</h2>
+        <small class="red">Compras e despesas</small>
+      </article>
+      <article class="finance-card">
+        <span>✅</span>
+        <p>Saldo operacional</p>
+        <h2 id="mSaldo">R$ 11.457,10</h2>
+        <small class="green">Resultado positivo</small>
+      </article>
+      <article class="finance-card">
+        <span>📈</span>
+        <p>Margem estimada</p>
+        <h2>38,7%</h2>
+        <small>Baseada em custo médio</small>
+      </article>
+      <article class="finance-card">
+        <span>💳</span>
+        <p>Cartões a receber</p>
+        <h2>R$ 4.980,00</h2>
+        <small>Próximos 3 dias</small>
+      </article>
+      <article class="finance-card">
+        <span>📥</span>
+        <p>NF-e pendentes</p>
+        <h2>3</h2>
+        <small>Aguardando autorização</small>
+      </article>
+    </section>
+
+    <section class="finance-dashboard-grid">
+      <article class="finance-panel large">
+        <div class="panel-head">
+          <div>
+            <h3>Fluxo de caixa mensal</h3>
+            <p>Entradas, saídas e saldo projetado.</p>
+          </div>
+          <strong class="green">+ R$ 34.720</strong>
+        </div>
+        <canvas id="chartFluxo" height="120"></canvas>
+      </article>
+
+      <article class="finance-panel">
+        <div class="panel-head">
+          <div>
+            <h3>Formas de pagamento</h3>
+            <p>Distribuição das vendas.</p>
+          </div>
+        </div>
+        <canvas id="chartPagamentos" height="180"></canvas>
+      </article>
+
+      <article class="finance-panel">
+        <div class="panel-head">
+          <div>
+            <h3>Contas a pagar</h3>
+            <p>Próximos vencimentos.</p>
+          </div>
+          <button class="mini-btn" type="button">+ Nova</button>
+        </div>
+        <div class="finance-list">
+          <div><span>Fornecedor Bebidas Sul</span><strong class="red">R$ 1.250,00</strong><small>Vence hoje</small></div>
+          <div><span>Coca-Cola FEMSA</span><strong class="red">R$ 2.480,00</strong><small>2 dias</small></div>
+          <div><span>Aluguel</span><strong class="red">R$ 1.900,00</strong><small>5 dias</small></div>
+        </div>
+      </article>
+
+      <article class="finance-panel">
+        <div class="panel-head">
+          <div>
+            <h3>Contas a receber</h3>
+            <p>Cartões, Pix e pendências.</p>
+          </div>
+        </div>
+        <div class="finance-list">
+          <div><span>Getnet crédito</span><strong class="green">R$ 2.980,00</strong><small>D+2</small></div>
+          <div><span>Pix do dia</span><strong class="green">R$ 1.650,00</strong><small>Confirmado</small></div>
+          <div><span>Mercado Pago</span><strong class="green">R$ 890,00</strong><small>D+1</small></div>
+        </div>
+      </article>
+
+      <article class="finance-panel">
+        <div class="panel-head">
+          <div>
+            <h3>Estatísticas rápidas</h3>
+            <p>Indicadores de operação.</p>
+          </div>
+        </div>
+        <div class="stat-stack">
+          <div><span>Ticket médio</span><strong>R$ 42,80</strong></div>
+          <div><span>Maior despesa</span><strong>Compras XML</strong></div>
+          <div><span>Melhor forma</span><strong>Pix</strong></div>
+          <div><span>Lucro estimado</span><strong class="green">R$ 4.430,20</strong></div>
+        </div>
+      </article>
+
+      <article class="finance-panel">
+        <div class="panel-head">
+          <div>
+            <h3>Entrada de Nota XML</h3>
+            <p>Importe XML para lançar compra, estoque e contas a pagar.</p>
+          </div>
+        </div>
+        <input id="xmlInput" class="premium-input" type="file" accept=".xml,text/xml">
+        <button id="btnLerXml" class="btn-primary" type="button">Ler XML</button>
+        <div id="xmlResultado" class="xml-result"></div>
+      </article>
+
+
+      <article id="contasFixas" class="finance-panel large contas-fixas-inline">
+        <div class="panel-head">
+          <div>
+            <h3>Contas fixas mensais</h3>
+            <p>Aluguel, água, luz, internet, contador e custos recorrentes entram automaticamente no markup do estoque.</p>
+          </div>
+          <strong id="totalContasFixas" class="red">R$ 0,00</strong>
+        </div>
+
+        <div class="contas-inline-grid">
+          <form id="formContaFixa" class="config-form contas-form-inline">
+            <label>Descrição</label>
+            <input id="contaDescricao" type="text" placeholder="Ex: Aluguel, água, luz..." required>
+            <label>Categoria</label>
+            <select id="contaCategoria" class="premium-input">
+              <option>Aluguel</option><option>Água</option><option>Luz</option><option>Internet</option><option>Contador</option><option>Funcionários</option><option>Sistema</option><option>Outros</option>
+            </select>
+            <label>Valor mensal</label>
+            <input id="contaValor" type="number" step="0.01" placeholder="0,00" required>
+            <label>Dia de vencimento</label>
+            <input id="contaDia" type="number" min="1" max="31" placeholder="10" required>
+            <button class="btn-primary" type="submit">Adicionar conta fixa</button>
+          </form>
+
+          <div>
+            <div id="listaContasFixas" class="finance-list"></div>
+            <button id="btnResetContas" class="mini-btn" type="button">Restaurar contas exemplo</button>
+            <p class="info-box">O total mensal das contas fixas é salvo no sistema e usado pelo Estoque para sugerir o preço ideal de cada produto conforme vendas e despesas mensais.</p>
+          </div>
+        </div>
+      </article>
+
+
+      <article class="finance-panel large">
+        <div class="panel-head">
+          <div>
+            <h3>Central financeira</h3>
+            <p>Acesso rápido aos recursos avançados.</p>
+          </div>
+        </div>
+        <div class="quick-finance-grid">
+          <a href="monitor-nfe.html">📥 <strong>Monitor NF-e</strong><small>Automático ou autorização</small></a>
+          <a href="cartoes.html">💳 <strong>Cartões e Conta</strong><small>Getnet, Mercado Pago e taxas</small></a>
+          <a href="relatorios.html">📊 <strong>Relatórios</strong><small>7, 15, 30, 60 e 90 dias</small></a>
+          <a href="fiscal.html">🧾 <strong>Fiscal</strong><small>NFC-e, XML e SEFAZ</small></a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="js/financeiro.js"></script>
+</body>
+</html>
+

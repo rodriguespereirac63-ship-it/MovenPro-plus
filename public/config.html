@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovenPro+ | Configurações</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css?v=bar-menu-sutil-20260517-2" />
+</head>
+<body class="app-page">
+  <aside class="sidebar">
+    <div class="brand-logo brand-logo-sidebar">
+      <svg class="brand-symbol" viewBox="0 0 120 120" aria-hidden="true"><path class="m-left" d="M18 96V31c0-8 10-12 16-6l28 29 17-17H63V21h43v43H90V48L62 76 36 49v47H18z"/><path class="m-arrow" d="M40 28l22 22 31-31h-16V5h40v40h-14V30L62 71 30 39z"/></svg>
+      <div class="brand-word"><h1>Moven<span>Pro+</span></h1><p>GESTÃO INTELIGENTE</p></div>
+    </div>
+    <nav>
+      <a class="" href="dashboard.html" data-admin-only>🏠 Dashboard</a>
+      <a class="" href="vendas.html">🛒 PDV / Vendas</a>
+      <a class="" href="mesas.html">🍽️ Mesas</a>
+      <a class="" href="garcom.html">📱 Garçom Mobile</a>
+      <a class="" href="cozinha.html">👨‍🍳 Cozinha</a>
+      <a class="" href="bar.html" data-page-link="bar">🍹 Bar</a>
+      <a class="" href="alertas.html" data-admin-only>🔔 Alertas</a>
+      <a class="" href="estoque.html">🏷️ Estoque</a>
+      <a class="" href="financeiro.html" data-admin-only>💰 Financeiro</a>
+      <a class="" href="cartoes.html" data-admin-only>💳 Cartões e Conta</a>
+      <a class="" href="monitor-nfe.html" data-admin-only>📥 Monitor NF-e</a>
+      <a class="" href="relatorios.html" data-admin-only>📊 Relatórios</a>
+      <a class="" href="fiscal.html" data-admin-only>🧾 Fiscal</a>
+      <a class="active" href="config.html" data-admin-only>⚙️ Configurações</a>
+      <a id="logoutBtn" href="#">🚪 Sair</a>
+    </nav>
+    <div class="sidebar-status">● Sistema online</div>
+  </aside>
+  <main class="main-content">
+    <header class="topbar"><div><h1>Configurações</h1><p>Empresa, usuários, PDV/Caixa e Segurança.</p></div></header>
+    <section class="panel config-panel">
+      <h2>Empresa</h2>
+      <form class="config-form">
+        <div class="form-grid">
+          <label>Razão social<input placeholder="MovenPro Comércio LTDA"></label><label>Nome fantasia<input placeholder="Loja Matriz"></label><label>CNPJ<input placeholder="00.000.000/0001-00"></label><label>WhatsApp<input placeholder="(47) 99999-9999"></label>
+          <label>CEP<input placeholder="00000-000"></label><label>Rua<input placeholder="Rua da Conveniência"></label><label>Número do imóvel<input placeholder="123"></label><label>Bairro<input placeholder="Centro"></label><label>Cidade<input placeholder="Joinville"></label><label>Estado<input placeholder="SC"></label><label>Complemento<input placeholder="Sala, bloco, referência"></label><label>Email<input placeholder="contato@empresa.com"></label>
+        </div><button class="btn-primary" type="button">Salvar empresa</button>
+      </form>
+    </section>
+    <section class="dashboard-grid">
+      <article class="panel"><h3>Usuários e permissões</h3><p>Admin: acesso total</p><p>Caixa: Vendas e Estoque consulta</p><button class="btn-primary" type="button">Gerenciar usuários</button></article>
+      <article class="panel"><h3>PDV / Caixa</h3><p>Impressora padrão: configurável</p><p>Som ao vender: ativo</p><p>Venda rápida: ativa</p><button class="btn-primary" type="button">Salvar PDV</button></article>
+      <article class="panel" data-admin-only><h3>Segurança 🔒</h3><p>Backup manual</p><p>Histórico de acessos</p><p>Bloquear usuário</p><button class="btn-primary" type="button">Abrir segurança</button></article>
+    </section>
+
+
+    <section class="panel config-panel" id="areaBackup" data-admin-only>
+      <h2>Backup do sistema</h2>
+      <p class="backup-note">Faça uma cópia manual dos dados do MovenPro+ por empresa. O arquivo gerado pode ser guardado no computador, pendrive ou nuvem.</p>
+      <div class="backup-grid">
+        <div class="backup-box">
+          <h3>📦 Gerar backup</h3>
+          <p>Exporta produtos, estoque, vendas, mesas, pedidos, financeiro, caixa, fiscal, impressoras e configurações.</p>
+          <button id="backupGerarBtn" type="button" class="btn-primary">Gerar backup agora</button>
+        </div>
+        <div class="backup-box">
+          <h3>♻️ Restaurar backup</h3>
+          <p>Importa um arquivo .json gerado pelo próprio sistema e substitui os dados locais pelas informações do arquivo.</p>
+          <button id="backupRestaurarBtn" type="button" class="btn-secondary">Restaurar backup</button>
+        </div>
+        <div class="backup-box">
+          <h3>🕘 Histórico local</h3>
+          <p id="backupResumo">Nenhum backup gerado nesta máquina.</p>
+          <button id="backupHistoricoBtn" type="button" class="btn-secondary">Ver histórico</button>
+        </div>
+      </div>
+      <p class="backup-note">Importante: esta etapa é backup manual. O backup automático diário no Firebase Storage exige Functions/Blaze e pode ser adicionado depois.</p>
+    </section>
+
+
+    <section class="panel config-panel" id="areaImpressoras">
+      <h2>Impressoras térmicas ESC/POS</h2>
+      <p class="printer-note">Configure impressoras de rede para comanda da Cozinha e do Bar. Use IP fixo na impressora e porta 9100.</p>
+      <div class="printer-grid">
+        <div class="printer-box">
+          <h3>👨‍🍳 Impressora Cozinha</h3>
+          <label>Ativar impressão automática</label>
+          <select id="printerCozinhaAtiva"><option value="sim">Sim</option><option value="nao">Não</option></select>
+          <label>IP da impressora</label>
+          <input id="printerCozinhaIp" type="text" placeholder="192.168.0.50">
+          <label>Porta</label>
+          <input id="printerCozinhaPort" type="number" value="9100">
+        </div>
+        <div class="printer-box">
+          <h3>🍹 Impressora Bar</h3>
+          <label>Ativar impressão automática</label>
+          <select id="printerBarAtiva"><option value="sim">Sim</option><option value="nao">Não</option></select>
+          <label>IP da impressora</label>
+          <input id="printerBarIp" type="text" placeholder="192.168.0.51">
+          <label>Porta</label>
+          <input id="printerBarPort" type="number" value="9100">
+        </div>
+      </div>
+      <div class="printer-actions">
+        <button id="savePrintersBtn" type="button" class="btn-primary">Salvar impressoras</button>
+        <button id="testCozinhaBtn" type="button" class="btn-secondary">Teste Cozinha</button>
+        <button id="testBarBtn" type="button" class="btn-secondary">Teste Bar</button>
+      </div>
+      <p class="printer-note">Observação: o navegador salva as configurações. Para impressão ESC/POS direta na rede, o próximo passo é ligar esse cadastro ao servidor/ponte de impressão local.</p>
+    </section>
+
+  </main>
+  <script type="module" src="js/dashboard.js"></script>
+  <script type="module" src="js/config.js"></script>
+</body>
+</html>
+

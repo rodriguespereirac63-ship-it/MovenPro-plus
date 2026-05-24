@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovenPro+ | Monitor NF-e</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css?v=bar-menu-sutil-20260517-2" />
+</head>
+<body class="app-page">
+  <aside class="sidebar">
+    <div class="brand-logo brand-logo-sidebar">
+      <svg class="brand-symbol" viewBox="0 0 120 120" aria-hidden="true"><path class="m-left" d="M18 96V31c0-8 10-12 16-6l28 29 17-17H63V21h43v43H90V48L62 76 36 49v47H18z"/><path class="m-arrow" d="M40 28l22 22 31-31h-16V5h40v40h-14V30L62 71 30 39z"/></svg>
+      <div class="brand-word"><h1>Moven<span>Pro+</span></h1><p>GESTÃO INTELIGENTE</p></div>
+    </div>
+    <nav>
+      <a class="" href="dashboard.html" data-admin-only>🏠 Dashboard</a>
+      <a class="" href="vendas.html">🛒 PDV / Vendas</a>
+      <a class="" href="mesas.html">🍽️ Mesas</a>
+      <a class="" href="garcom.html">📱 Garçom Mobile</a>
+      <a class="" href="cozinha.html">👨‍🍳 Cozinha</a>
+      <a class="" href="bar.html" data-page-link="bar">🍹 Bar</a>
+      <a class="" href="alertas.html" data-admin-only>🔔 Alertas</a>
+      <a class="" href="estoque.html">🏷️ Estoque</a>
+      <a class="" href="financeiro.html" data-admin-only>💰 Financeiro</a>
+      <a class="" href="cartoes.html" data-admin-only>💳 Cartões e Conta</a>
+      <a class="active" href="monitor-nfe.html" data-admin-only>📥 Monitor NF-e</a>
+      <a class="" href="relatorios.html" data-admin-only>📊 Relatórios</a>
+      <a class="" href="fiscal.html" data-admin-only>🧾 Fiscal</a>
+      <a class="" href="config.html" data-admin-only>⚙️ Configurações</a>
+      <a id="logoutBtn" href="#">🚪 Sair</a>
+    </nav>
+    <div class="sidebar-status">● Sistema online</div>
+  </aside>
+  <main class="main-content">
+    <header class="topbar">
+      <div><h1>Monitor NF-e</h1><p>Entrada automática de notas de fornecedor com opção de aprovação antes de atualizar estoque e financeiro.</p></div>
+      <div class="top-actions"><span id="modoAtualBadge">Modo: Autorização</span><span>SEFAZ preparado</span></div>
+    </header>
+
+    <section class="metric-grid">
+      <article class="metric-card"><span>📥</span><p>Notas recebidas</p><h2 id="cardNotas">3</h2><small>aguardando análise</small></article>
+      <article class="metric-card"><span>⏳</span><p>Aguardando autorização</p><h2 id="cardPendentes">2</h2><small class="red">revisar entrada</small></article>
+      <article class="metric-card"><span>✅</span><p>Importadas hoje</p><h2 id="cardImportadas">1</h2><small class="green">estoque atualizado</small></article>
+      <article class="metric-card"><span>💰</span><p>Contas geradas</p><h2>R$ 3.240,00</h2><small>contas a pagar</small></article>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="panel panel-wide">
+        <h2>Modo de entrada das NF-e</h2>
+        <p>Escolha como o MovenPro deve tratar notas emitidas por fornecedores contra o CNPJ da loja.</p>
+        <form id="formMonitorNfe" class="config-form">
+          <div class="form-grid">
+            <label>Modo de funcionamento
+              <select id="modoEntradaNfe">
+                <option value="manual">Manual XML</option>
+                <option value="autorizacao" selected>Automático com autorização</option>
+                <option value="automatico">Totalmente automático</option>
+              </select>
+            </label>
+            <label>Intervalo de busca
+              <select id="intervaloBuscaNfe">
+                <option value="5">A cada 5 minutos</option>
+                <option value="15" selected>A cada 15 minutos</option>
+                <option value="30">A cada 30 minutos</option>
+                <option value="60">A cada 1 hora</option>
+              </select>
+            </label>
+            <label>Ambiente
+              <select id="ambienteMonitorNfe"><option value="homologacao">Homologação</option><option value="producao">Produção</option></select>
+            </label>
+            <label>Status do monitor
+              <select id="statusMonitorNfe"><option value="ativo" selected>Ativo</option><option value="pausado">Pausado</option></select>
+            </label>
+          </div>
+          <div class="gateway-box">
+            <h3>Ações automáticas</h3>
+            <label><input id="acaoEstoque" type="checkbox" checked> Atualizar estoque ao confirmar a nota</label>
+            <label><input id="acaoFinanceiro" type="checkbox" checked> Criar conta a pagar no financeiro</label>
+            <label><input id="acaoCusto" type="checkbox" checked> Atualizar custo médio do produto</label>
+            <label><input id="acaoFornecedor" type="checkbox" checked> Vincular/Cadastrar fornecedor automaticamente</label>
+          </div>
+          <div class="modal-actions payment-actions"><button class="btn-primary" type="submit">Salvar configuração</button></div>
+        </form>
+      </article>
+
+      <article class="panel">
+        <h3>Como o modo funciona</h3>
+        <div id="explicacaoModo" class="gateway-checklist"></div>
+      </article>
+
+      <article class="panel panel-wide">
+        <h2>Notas recebidas de fornecedores</h2>
+        <p>Fila operacional de NF-e integrada ao módulo fiscal. A emissão em produção usa backend fiscal próprio, certificado A1 e consulta DF-e/SEFAZ.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Fornecedor</th><th>NF-e</th><th>Valor</th><th>Status</th><th>Ação</th></tr></thead>
+            <tbody id="listaNotasNfe"></tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h3>Configuração fiscal necessária</h3>
+        <p>Para ativação automática em produção, cadastre certificado A1, CNPJ, IE e ambiente SEFAZ no menu Fiscal.</p>
+        <p><a href="fiscal.html">🧾 Abrir Fiscal / SEFAZ</a></p>
+      </article>
+    </section>
+  </main>
+  <script type="module" src="js/monitor-nfe.js"></script>
+</body>
+</html>

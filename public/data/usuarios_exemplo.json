@@ -1,0 +1,14 @@
+{
+  "admin": {
+    "nome": "Carlos",
+    "perfil": "admin",
+    "empresaId": "moven001",
+    "ativo": true
+  },
+  "funcionario": {
+    "nome": "João",
+    "perfil": "funcionario",
+    "empresaId": "moven001",
+    "ativo": true
+  }
+}

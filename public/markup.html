@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovenPro+ | Markup e Formação de Preço</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css?v=bar-menu-sutil-20260517-2" />
+</head>
+<body class="app-page financeiro-premium-page">
+  <aside class="sidebar">
+    <div class="brand-logo brand-logo-sidebar">
+      <svg class="brand-symbol" viewBox="0 0 120 120" aria-hidden="true"><path class="m-left" d="M18 96V31c0-8 10-12 16-6l28 29 17-17H63V21h43v43H90V48L62 76 36 49v47H18z"/><path class="m-arrow" d="M40 28l22 22 31-31h-16V5h40v40h-14V30L62 71 30 39z"/></svg>
+      <div class="brand-word"><h1>Moven<span>Pro+</span></h1><p>GESTÃO INTELIGENTE</p></div>
+    </div>
+    <nav>
+      <a class="" href="dashboard.html" data-admin-only>🏠 Dashboard</a>
+      <a class="" href="vendas.html">🛒 PDV / Vendas</a>
+      <a class="" href="mesas.html">🍽️ Mesas</a>
+      <a class="" href="garcom.html">📱 Garçom Mobile</a>
+      <a class="" href="cozinha.html">👨‍🍳 Cozinha</a>
+      <a class="" href="bar.html" data-page-link="bar">🍹 Bar</a>
+      <a class="" href="alertas.html" data-admin-only>🔔 Alertas</a>
+      <a class="" href="estoque.html">🏷️ Estoque</a>
+      <a class="" href="financeiro.html" data-admin-only>💰 Financeiro</a>
+      <a class="" href="cartoes.html" data-admin-only>💳 Cartões e Conta</a>
+      <a class="" href="monitor-nfe.html" data-admin-only>📥 Monitor NF-e</a>
+      <a class="" href="relatorios.html" data-admin-only>📊 Relatórios</a>
+      <a class="" href="fiscal.html" data-admin-only>🧾 Fiscal</a>
+      <a class="" href="config.html" data-admin-only>⚙️ Configurações</a>
+      <a id="logoutBtn" href="#">🚪 Sair</a>
+    </nav>
+    <div class="sidebar-status">● Sistema online</div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar finance-hero">
+      <div>
+        <span class="finance-kicker">Precificação inteligente</span>
+        <h1>Markup / Formação de preços</h1>
+        <p>Determine preço de venda considerando custo do produto, imposto, taxa de cartão, perdas, lucro e contas fixas do financeiro.</p>
+      </div>
+      <div class="top-actions">
+        <a href="estoque.html">📦 Estoque</a>
+      </div>
+    </header>
+
+    <section class="finance-metrics">
+      <article class="finance-card highlight"><span>📦</span><p>Custo produto</p><h2 id="resCusto">R$ 5,00</h2><small>base unitária</small></article>
+      <article class="finance-card"><span>🏢</span><p>Custo fixo rateado</p><h2 id="resFixo">R$ 0,43</h2><small>por unidade estimada</small></article>
+      <article class="finance-card"><span>📈</span><p>Preço sugerido</p><h2 id="resPreco">R$ 8,90</h2><small class="green">com margem segura</small></article>
+      <article class="finance-card"><span>✅</span><p>Lucro estimado</p><h2 id="resLucro">R$ 2,78</h2><small>por unidade</small></article>
+    </section>
+
+    <section class="finance-dashboard-grid">
+      <article class="finance-panel">
+        <div class="panel-head"><div><h3>Simulador de preço</h3><p>Use para qualquer produto do estoque.</p></div></div>
+        <form id="formMarkup" class="config-form">
+          <label>Produto</label>
+          <input id="produtoNome" type="text" value="Coca-Cola lata 350ml">
+          <label>Custo unitário do produto</label>
+          <input id="custoProduto" type="number" step="0.01" value="5.00">
+          <label>Venda mensal prevista da loja</label>
+          <input id="vendaMensal" type="number" step="0.01" value="74000">
+          <label>Unidades vendidas previstas no mês</label>
+          <input id="unidadesMes" type="number" step="1" value="14500">
+          <label>Impostos (%)</label>
+          <input id="imposto" type="number" step="0.01" value="6">
+          <label>Taxa cartão/recebimento (%)</label>
+          <input id="taxaCartao" type="number" step="0.01" value="2.49">
+          <label>Perdas/quebras (%)</label>
+          <input id="perdas" type="number" step="0.01" value="2">
+          <label>Margem de lucro desejada (%)</label>
+          <input id="margem" type="number" step="0.01" value="28">
+          <button class="btn-primary" type="submit">Calcular preço</button>
+        </form>
+      </article>
+
+      <article class="finance-panel large">
+        <div class="panel-head">
+          <div><h3>Resultado da precificação</h3><p>Valores calculados com as contas fixas cadastradas.</p></div>
+          <button id="btnAplicarPreco" class="mini-btn" type="button">Aplicar no estoque</button>
+        </div>
+        <div id="markupResultado" class="markup-result"></div>
+      </article>
+
+      <article class="finance-panel large">
+        <div class="panel-head">
+          <div><h3>Produtos sugeridos para revisão</h3><p>Exemplo de produtos onde o preço pode estar abaixo do ideal.</p></div>
+        </div>
+        <div class="finance-list">
+          <div><span>Coca-Cola lata 350ml</span><strong class="green">Sug.: R$ 8,90</strong><small>preço atual R$ 7,50</small></div>
+          <div><span>Red Bull 250ml</span><strong class="green">Sug.: R$ 12,90</strong><small>preço atual R$ 11,00</small></div>
+          <div><span>Doritos 96g</span><strong class="green">Sug.: R$ 13,50</strong><small>preço atual R$ 12,00</small></div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script type="module" src="js/markup.js"></script>
+</body>
+</html>
+
